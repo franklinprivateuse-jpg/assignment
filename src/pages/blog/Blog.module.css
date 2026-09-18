@@ -1,0 +1,36 @@
+.postList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.postCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s;
+}
+
+.postCard:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.postDate {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.postTitle {
+  font-size: 1.25rem;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-sm);
+}
+
+.postExcerpt {
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}

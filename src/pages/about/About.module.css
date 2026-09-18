@@ -1,0 +1,27 @@
+.profileSection {
+  display: flex;
+  gap: var(--space-xl);
+  align-items: flex-start;
+  margin-bottom: var(--space-xl);
+}
+
+.profileInfo {
+  flex: 1;
+}
+
+.profileInfo p {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+}
+
+.highlight {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .profileSection {
+    flex-direction: column;
+  }
+}

@@ -1,75 +1,93 @@
-# React + TypeScript + Vite
+# Kewei's Digital Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A functional digital portfolio built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
 
 ```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+kewei-portfolio/
+├── public/                  # Static assets (favicon, icons)
+├── requirements/            # Assessment requirements and coding standards
+├── src/
+│   ├── app/
+│   │   └── AppRouter.tsx    # Route configuration for all pages
+│   ├── assets/              # Images and media files
+│   ├── components/
+│   │   └── navbar/          # Navigation bar component
+│   │       ├── Navbar.tsx
+│   │       └── Navbar.module.css
+│   ├── features/            # Feature modules (reserved)
+│   ├── hooks/
+│   │   └── useChat.ts       # Custom hook for messaging functionality
+│   ├── i18n/                # Internationalization (reserved)
+│   ├── pages/
+│   │   ├── page.module.css  # Shared page layout styles
+│   │   ├── home/            # Home page - portfolio landing
+│   │   ├── about/           # About page - personal introduction
+│   │   ├── education/       # Education page - academic background
+│   │   ├── knowledge/       # Professional Knowledge page - skills & expertise
+│   │   ├── gallery/         # Pictures Gallery page - photo showcase
+│   │   ├── videos/          # Video Gallery page - video showcase
+│   │   ├── blog/            # Blog page - articles and posts
+│   │   ├── messaging/       # Instant Messaging page - contact/leave a message
+│   │   └── readme/          # README page - project structure description
+│   ├── utils/               # Utility functions (reserved)
+│   ├── App.tsx              # Root component with layout and router
+│   ├── index.css            # Global styles and CSS variables
+│   └── main.tsx             # Application entry point
+├── index.html               # HTML template
+├── package.json             # Dependencies and scripts
+├── tsconfig.json            # TypeScript configuration
+├── tsconfig.app.json        # App-specific TypeScript config
+├── tsconfig.node.json       # Node-specific TypeScript config
+├── vite.config.ts           # Vite build configuration
+└── eslint.config.js         # ESLint configuration
 ```
+
+## Pages
+
+| Page | Path | Description |
+|------|------|-------------|
+| Home | `/` | Portfolio landing page with hero section |
+| About | `/about` | Personal introduction and background |
+| Education | `/education` | Academic history and qualifications |
+| Professional Knowledge | `/knowledge` | Skills, technologies, and expertise |
+| Pictures Gallery | `/gallery` | Photo gallery showcase |
+| Video Gallery | `/videos` | Video gallery showcase |
+| Blog | `/blog` | Blog articles and posts |
+| Instant Messaging | `/messaging` | Contact form with auto-reply |
+| README | `/readme` | Project structure documentation |
+
+## Tech Stack
+
+- **Framework:** React 19
+- **Language:** TypeScript
+- **Build Tool:** Vite
+- **Routing:** React Router DOM v7
+- **Styling:** CSS Modules with centralized theme variables
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## Coding Standards
+
+This project follows the coding standards defined in `requirements/coding-standards.md`, including:
+
+- kebab-case for directory and file names
+- CSS Modules for component styling
+- Centralized CSS variables for theming
+- No `any` type usage in TypeScript
+- Reserved directories for future features (`utils/`, `i18n/`, `features/`)
