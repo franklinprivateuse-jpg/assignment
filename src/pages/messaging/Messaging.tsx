@@ -3,10 +3,12 @@ import { useChat } from '../../hooks/useChat';
 import styles from './Messaging.module.css';
 import layout from '../page.module.css';
 
+/** Messaging page — simple chat interface with auto-reply bot */
 const Messaging: React.FC = () => {
   const { messages, sendMessage } = useChat();
   const [input, setInput] = useState('');
 
+  // Handle form submission: send trimmed message and clear input
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const trimmed = input.trim();

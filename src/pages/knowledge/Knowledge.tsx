@@ -1,11 +1,13 @@
 import styles from './Knowledge.module.css';
 import layout from '../page.module.css';
 
+/** A skill category grouping related technologies */
 interface SkillCategory {
   category: string;
   skills: string[];
 }
 
+/** Professional skills organized by category */
 const SKILL_DATA: SkillCategory[] = [
   { category: 'Frontend', skills: ['React', 'TypeScript', 'HTML5', 'CSS3', 'Vite'] },
   { category: 'Backend', skills: ['Node.js', 'Express', 'Python', 'Java'] },
@@ -13,6 +15,7 @@ const SKILL_DATA: SkillCategory[] = [
   { category: 'Databases', skills: ['MySQL', 'MongoDB', 'PostgreSQL'] },
 ];
 
+/** Knowledge page — professional skills and technology stack */
 const Knowledge: React.FC = () => {
   return (
     <div className={layout.container}>

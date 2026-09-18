@@ -2,12 +2,14 @@ import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import layout from '../page.module.css';
 
+/** A feature card linking to a portfolio section */
 interface Feature {
   title: string;
   description: string;
   link: string;
 }
 
+/** Feature cards displayed on the home page */
 const FEATURES: Feature[] = [
   { title: 'About Me', description: 'Learn about my background and interests.', link: '/about' },
   { title: 'Education', description: 'My academic journey and qualifications.', link: '/education' },
@@ -17,6 +19,7 @@ const FEATURES: Feature[] = [
   { title: 'Blog', description: 'Articles and thoughts on technology.', link: '/blog' },
 ];
 
+/** Home page — hero section and feature overview cards */
 const Home: React.FC = () => {
   return (
     <div className={layout.container}>

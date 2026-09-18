@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+// Page components
 import Home from '../pages/home/Home';
 import About from '../pages/about/About';
 import Education from '../pages/education/Education';
@@ -9,6 +10,7 @@ import Blog from '../pages/blog/Blog';
 import Messaging from '../pages/messaging/Messaging';
 import Readme from '../pages/readme/Readme';
 
+/** Central route configuration — maps URL paths to page components */
 const AppRouter: React.FC = () => {
   return (
     <Routes>

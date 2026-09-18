@@ -1,11 +1,13 @@
 import styles from './Gallery.module.css';
 import layout from '../page.module.css';
 
+/** A placeholder item in the photo gallery */
 interface GalleryImage {
   id: number;
   label: string;
 }
 
+/** Gallery items representing projects, events, and activities */
 const GALLERY_ITEMS: GalleryImage[] = [
   { id: 1, label: 'Project Screenshot 1' },
   { id: 2, label: 'Project Screenshot 2' },
@@ -15,6 +17,7 @@ const GALLERY_ITEMS: GalleryImage[] = [
   { id: 6, label: 'Workshop' },
 ];
 
+/** Gallery page — photo highlights from projects and events */
 const Gallery: React.FC = () => {
   return (
     <div className={layout.container}>

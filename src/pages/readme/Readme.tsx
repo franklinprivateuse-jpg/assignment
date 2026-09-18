@@ -1,6 +1,7 @@
 import styles from './Readme.module.css';
 import layout from '../page.module.css';
 
+/** README page — project overview, tech stack, and getting started guide */
 const Readme: React.FC = () => {
   return (
     <div className={layout.container}>

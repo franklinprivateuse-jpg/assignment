@@ -1,6 +1,7 @@
 import styles from './Blog.module.css';
 import layout from '../page.module.css';
 
+/** A single blog post entry */
 interface BlogPost {
   id: number;
   date: string;
@@ -8,6 +9,7 @@ interface BlogPost {
   excerpt: string;
 }
 
+/** Static blog post data */
 const POSTS: BlogPost[] = [
   {
     id: 1,
@@ -29,6 +31,7 @@ const POSTS: BlogPost[] = [
   },
 ];
 
+/** Blog page — lists articles and thoughts on software development */
 const Blog: React.FC = () => {
   return (
     <div className={layout.container}>

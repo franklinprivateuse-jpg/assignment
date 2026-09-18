@@ -1,6 +1,7 @@
 import styles from './About.module.css';
 import layout from '../page.module.css';
 
+/** About page — personal introduction and interests */
 const About: React.FC = () => {
   return (
     <div className={layout.container}>

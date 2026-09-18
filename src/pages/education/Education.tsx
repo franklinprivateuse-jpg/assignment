@@ -1,12 +1,14 @@
 import styles from './Education.module.css';
 import layout from '../page.module.css';
 
+/** A single education history entry */
 interface EducationEntry {
   date: string;
   school: string;
   detail: string;
 }
 
+/** Education history displayed in timeline order */
 const EDUCATION_LIST: EducationEntry[] = [
   {
     date: '2024 – Present',
@@ -20,6 +22,7 @@ const EDUCATION_LIST: EducationEntry[] = [
   },
 ];
 
+/** Education page — academic timeline and qualifications */
 const Education: React.FC = () => {
   return (
     <div className={layout.container}>

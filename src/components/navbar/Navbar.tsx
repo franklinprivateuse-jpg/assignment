@@ -1,11 +1,13 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
+/** Navigation link configuration */
 interface NavItem {
   to: string;
   label: string;
 }
 
+/** All navigation links displayed in the navbar */
 const NAV_ITEMS: NavItem[] = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
@@ -18,6 +20,7 @@ const NAV_ITEMS: NavItem[] = [
   { to: '/readme', label: 'README' },
 ];
 
+/** Top navigation bar with brand logo and page links */
 const Navbar: React.FC = () => {
   return (
     <nav className={styles.navbar}>
@@ -29,9 +32,11 @@ const Navbar: React.FC = () => {
           <li key={item.to}>
             <NavLink
               to={item.to}
+              // Apply active style when the current route matches
               className={({ isActive }) =>
                 isActive ? styles.navLinkActive : styles.navLink
               }
+              // Exact match for the home route to prevent false positives
               end={item.to === '/'}
             >
               {item.label}
