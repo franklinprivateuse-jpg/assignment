@@ -17,14 +17,10 @@
   box-shadow: var(--shadow-md);
 }
 
-.videoPlaceholder {
+.videoEmbed {
   aspect-ratio: 16 / 9;
-  background: var(--color-bg-secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-secondary);
-  font-size: 2rem;
+  width: 100%;
+  border: none;
 }
 
 .videoInfo {

@@ -1,18 +1,17 @@
 import styles from './Videos.module.css';
 import layout from '../page.module.css';
 
-/** A video entry with title and description */
+/** A video entry with title, description, and YouTube ID */
 interface VideoItem {
   id: number;
   title: string;
   description: string;
+  youtubeId: string;
 }
 
 /** Static list of video entries */
 const VIDEO_LIST: VideoItem[] = [
-  { id: 1, title: 'Project Demo', description: 'A walkthrough of my latest project.' },
-  { id: 2, title: 'Tech Talk', description: 'Presentation on modern React patterns.' },
-  { id: 3, title: 'Tutorial', description: 'Getting started with TypeScript.' },
+  { id: 1, title: 'Learning Software Engineering During the Era of AI', description: 'A talk on how AI is shaping software engineering education and practice.', youtubeId: 'w4rG5GY9IlA' },
 ];
 
 /** Videos page — showcases presentations, demos, and tutorials */
@@ -26,7 +25,12 @@ const Videos: React.FC = () => {
       <div className={styles.videoGrid}>
         {VIDEO_LIST.map((video) => (
           <div key={video.id} className={styles.videoCard}>
-            <div className={styles.videoPlaceholder}>&#9654;</div>
+            <iframe
+            src={`https://www.youtube.com/embed/${video.youtubeId}`}
+            title={video.title}
+            allowFullScreen
+            className={styles.videoEmbed}
+          />
             <div className={styles.videoInfo}>
               <h3 className={styles.videoTitle}>{video.title}</h3>
               <p className={styles.videoDesc}>{video.description}</p>
