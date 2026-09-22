@@ -11,15 +11,16 @@ interface EducationEntry {
 /** Education history displayed in timeline order */
 const EDUCATION_LIST: EducationEntry[] = [
   {
-    date: '2024 – Present',
+    date: '2026 – Present',
     school: 'University of Limerick',
     detail: 'MSc in Software Engineering',
   },
   {
-    date: '2019 – 2023',
-    school: 'Previous University',
-    detail: 'BSc in Computer Science',
+    date: '2025 – 2026',
+    school: '京东 (JD.com)',
+    detail: 'Java Developer',
   },
+
 ];
 
 /** Education page — academic timeline and qualifications */

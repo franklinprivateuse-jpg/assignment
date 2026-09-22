@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
+import Markdown from 'react-markdown';
 import styles from './BlogDetail.module.css';
 import layout from '../page.module.css';
 
@@ -34,7 +35,11 @@ const BlogDetail: React.FC = () => {
       <Link to="/blog" className={styles.backLink}>← Back to Blog</Link>
       <h1 className={layout.title}>{post?.title ?? 'Post Not Found'}</h1>
       <p className={styles.postDate}>{post?.date}</p>
-      {post && <div className={styles.postContent}>{post.content}</div>}
+      {post && (
+        <div className={styles.postContent}>
+          <Markdown>{post.content}</Markdown>
+        </div>
+      )}
     </div>
   );
 };

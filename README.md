@@ -53,7 +53,7 @@ kewei-portfolio/
 | Education | `/education` | Academic history and qualifications |
 | Professional Knowledge | `/knowledge` | Skills, technologies, and expertise |
 | Pictures Gallery | `/gallery` | Photo gallery showcase |
-| Video Gallery | `/videos` | Video gallery showcase |
+| Video Gallery | `/videos` | Video gallery with YouTube embed |
 | Blog | `/blog` | Blog articles and posts |
 | Instant Messaging | `/messaging` | Contact form with auto-reply |
 | README | `/readme` | Project structure documentation |

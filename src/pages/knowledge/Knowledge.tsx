@@ -9,10 +9,9 @@ interface SkillCategory {
 
 /** Professional skills organized by category */
 const SKILL_DATA: SkillCategory[] = [
-  { category: 'Frontend', skills: ['React', 'TypeScript', 'HTML5', 'CSS3', 'Vite'] },
-  { category: 'Backend', skills: ['Node.js', 'Express', 'Python', 'Java'] },
+  { category: 'Backend', skills: ['Java', 'Spring Boot', 'Node.js', 'Python'] },
   { category: 'Tools', skills: ['Git', 'Docker', 'VS Code', 'Linux'] },
-  { category: 'Databases', skills: ['MySQL', 'MongoDB', 'PostgreSQL'] },
+  { category: 'Databases', skills: ['MySQL', 'Oracle', 'ClickHouse'] },
 ];
 
 /** Knowledge page — professional skills and technology stack */

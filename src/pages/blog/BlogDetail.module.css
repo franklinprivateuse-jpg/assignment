@@ -21,5 +21,45 @@
   color: var(--color-text-secondary);
   font-size: 1rem;
   line-height: 1.8;
-  white-space: pre-line;
+}
+
+.postContent h2 {
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-heading);
+  font-size: 1.5rem;
+}
+
+.postContent h3 {
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-xs);
+  color: var(--color-text-heading);
+  font-size: 1.25rem;
+}
+
+.postContent p {
+  margin-bottom: var(--space-md);
+}
+
+.postContent ul,
+.postContent ol {
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+.postContent li {
+  margin-bottom: var(--space-xs);
+}
+
+.postContent strong {
+  color: var(--color-text-heading);
+  font-weight: 600;
+}
+
+.postContent code {
+  font-family: var(--font-mono);
+  background: var(--color-bg-secondary);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
 }

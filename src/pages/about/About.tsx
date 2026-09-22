@@ -11,14 +11,15 @@ const About: React.FC = () => {
         <div className={styles.profileInfo}>
           <p>
             I am <span className={styles.highlight}>Kewei</span>, a Software Engineering student at the
-            University of Limerick. I am passionate about modern web development,
-            software architecture, and building user-friendly applications.
+            University of Limerick. I have been working in the software industry for
+            <span className={styles.highlight}> seven years</span>, with experience at
+            Fortune 500 companies <span className={styles.highlight}>JD.com</span> and{' '}
+            <span className={styles.highlight}>Longfor.com</span>, as well as the Singapore-based
+            company <span className={styles.highlight}>Advance.ai</span>.
           </p>
           <p>
-            My interests span across front-end and back-end technologies,
-            with a focus on <span className={styles.highlight}>React</span>,{' '}
-            <span className={styles.highlight}>TypeScript</span>, and{' '}
-            <span className={styles.highlight}>Node.js</span>.
+            I primarily work on <span className={styles.highlight}>backend development</span>,
+            with extensive experience in building scalable and robust server-side systems.
           </p>
           <p>
             I believe in writing clean, maintainable code and continuously
@@ -33,6 +34,7 @@ const About: React.FC = () => {
           <div className={layout.card}>Web Development</div>
           <div className={layout.card}>Software Architecture</div>
           <div className={layout.card}>Open Source</div>
+          <div className={layout.card}>Requirements Engineering</div>
         </div>
       </section>
     </div>
