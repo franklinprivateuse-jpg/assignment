@@ -29,6 +29,15 @@
   margin-bottom: var(--space-sm);
 }
 
+.postTitleLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.postTitleLink:hover {
+  text-decoration: underline;
+}
+
 .postExcerpt {
   color: var(--color-text-secondary);
   font-size: 0.9375rem;

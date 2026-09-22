@@ -1,33 +1,15 @@
 import styles from './Blog.module.css';
 import layout from '../page.module.css';
-
-/** A single blog post entry */
-interface BlogPost {
-  id: number;
-  date: string;
-  title: string;
-  excerpt: string;
-}
+import { Link } from 'react-router-dom';
+import type { BlogPost } from './types';
 
 /** Static blog post data */
 const POSTS: BlogPost[] = [
   {
     id: 1,
     date: '2025-09-01',
-    title: 'Getting Started with React and TypeScript',
-    excerpt: 'A beginner-friendly guide to setting up a React project with TypeScript and Vite.',
-  },
-  {
-    id: 2,
-    date: '2025-08-15',
-    title: 'CSS Modules vs Global CSS',
-    excerpt: 'Why CSS Modules help prevent style conflicts and improve maintainability in large projects.',
-  },
-  {
-    id: 3,
-    date: '2025-07-20',
-    title: 'Custom Hooks in React',
-    excerpt: 'How to extract business logic into reusable custom hooks for cleaner component code.',
+    title: 'What is the Relationship Between React and JavaScript?',
+    excerpt: 'Understanding how React relates to JavaScript and why you need to master JavaScript before learning React.',
   },
 ];
 
@@ -41,7 +23,13 @@ const Blog: React.FC = () => {
         {POSTS.map((post) => (
           <article key={post.id} className={styles.postCard}>
             <div className={styles.postDate}>{post.date}</div>
-            <h3 className={styles.postTitle}>{post.title}</h3>
+            {post.id === 1 ? (
+              <Link to={`/blog/${post.id}`} className={styles.postTitleLink}>
+                <h3 className={styles.postTitle}>{post.title}</h3>
+              </Link>
+            ) : (
+              <h3 className={styles.postTitle}>{post.title}</h3>
+            )}
             <p className={styles.postExcerpt}>{post.excerpt}</p>
           </article>
         ))}

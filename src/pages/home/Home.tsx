@@ -26,7 +26,7 @@ const Home: React.FC = () => {
       <section className={styles.hero}>
         <h1 className={styles.heroTitle}>Welcome to My Portfolio</h1>
         <p className={styles.heroSubtitle}>
-          Hi, I am Kewei — a software engineering student passionate about building modern web applications.
+          Hi, I am Kewei — a software engineering student at the University of Limerick, passionate about building modern web applications.
         </p>
         <Link to="/about" className={styles.ctaButton}>
           Learn More About Me
