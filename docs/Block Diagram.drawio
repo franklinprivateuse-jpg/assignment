@@ -1,0 +1,84 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="INkxCZMUe1oK3lwDyFIe">
+    <mxGraphModel dx="1030" dy="535" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-36" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="View" vertex="1">
+          <mxGeometry height="144.5" width="600" x="160" y="555.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-3" edge="1" parent="1" source="Y0R4DPtyQdDhUmHZvs8r-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Y0R4DPtyQdDhUmHZvs8r-2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="main.tsx(entry)" vertex="1">
+          <mxGeometry height="40" width="200" x="300" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-5" edge="1" parent="1" source="Y0R4DPtyQdDhUmHZvs8r-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Y0R4DPtyQdDhUmHZvs8r-4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-14" connectable="0" parent="Y0R4DPtyQdDhUmHZvs8r-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Text" vertex="1">
+          <mxGeometry relative="1" x="-0.3667" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-21" connectable="0" parent="Y0R4DPtyQdDhUmHZvs8r-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="include" vertex="1">
+          <mxGeometry relative="1" x="-0.3724" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-40" edge="1" parent="1" source="Y0R4DPtyQdDhUmHZvs8r-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Y0R4DPtyQdDhUmHZvs8r-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-2" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="app.tsx (root component)" vertex="1">
+          <mxGeometry height="40" width="170" x="315" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-4" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="Nar Bar(view)" vertex="1">
+          <mxGeometry height="60" width="120" x="160" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-43" edge="1" parent="1" source="Y0R4DPtyQdDhUmHZvs8r-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Y0R4DPtyQdDhUmHZvs8r-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="approuter(component)" vertex="1">
+          <mxGeometry height="60" width="150" x="570" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-9" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="Home page" vertex="1">
+          <mxGeometry height="40" width="75" x="200" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-11" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="About&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="53" x="275" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-17" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="Edu" vertex="1">
+          <mxGeometry height="40" width="53" x="328" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-18" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="Skills" vertex="1">
+          <mxGeometry height="40" width="64" x="381" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-19" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="&lt;pre class=&quot;sc-fFubTW jbrcdg&quot; style=&quot;box-sizing: border-box; font-size: 13px; font-family: SFMono-Regular, Consolas, &amp;quot;Liberation Mono&amp;quot;, Menlo, Courier, monospace; margin: 13px 0px; overflow: auto hidden; background-color: var(--vscode-panel-background); border: 1px solid var(--vscode-panel-border, rgba(128, 128, 128, 0.2)); border-radius: 4px; padding: 8px 12px; max-width: calc(-20px + 100vw); text-align: start;&quot;&gt;&lt;code class=&quot;hljs language-javascript&quot; style=&quot;box-sizing: border-box; font-family: var(--vscode-editor-font-family, monospace); font-size: var(--vscode-editor-font-size, 12px); white-space: pre-wrap; border-color: currentcolor; color: rgb(0, 0, 0); background-color: transparent !important; padding: 0px !important; border-radius: 0px !important; opacity: 1 !important; border-width: medium !important; border-style: none !important; border-image: none !important; margin: 0px !important;&quot;&gt;&lt;span class=&quot;hljs-title class_&quot; style=&quot;box-sizing: border-box;&quot;&gt;Videos&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;" vertex="1">
+          <mxGeometry height="40" width="53" x="498" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-20" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="&lt;pre class=&quot;sc-fFubTW jbrcdg&quot; style=&quot;box-sizing: border-box; font-size: 13px; font-family: SFMono-Regular, Consolas, &amp;quot;Liberation Mono&amp;quot;, Menlo, Courier, monospace; margin: 13px 0px; overflow: auto hidden; background-color: var(--vscode-panel-background); border: 1px solid var(--vscode-panel-border, rgba(128, 128, 128, 0.2)); border-radius: 4px; padding: 8px 12px; max-width: calc(-20px + 100vw); text-align: start;&quot;&gt;&lt;code class=&quot;hljs language-javascript&quot; style=&quot;box-sizing: border-box; font-family: var(--vscode-editor-font-family, monospace); font-size: var(--vscode-editor-font-size, 12px); white-space: pre-wrap; color: rgb(0, 0, 0); background-color: transparent !important; padding: 0px !important; border-radius: 0px !important; opacity: 1 !important; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; border-image: none !important; margin: 0px !important;&quot;&gt;&lt;span class=&quot;hljs-title class_&quot; style=&quot;box-sizing: border-box;&quot;&gt;Gallery&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;" vertex="1">
+          <mxGeometry height="40" width="53" x="445" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-25" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="&lt;pre class=&quot;sc-fFubTW jbrcdg&quot; style=&quot;box-sizing: border-box; font-size: 13px; font-family: SFMono-Regular, Consolas, &amp;quot;Liberation Mono&amp;quot;, Menlo, Courier, monospace; margin: 13px 0px; overflow: auto hidden; background-color: var(--vscode-panel-background); border: 1px solid var(--vscode-panel-border, rgba(128, 128, 128, 0.2)); border-radius: 4px; padding: 8px 12px; max-width: calc(-20px + 100vw); text-align: start;&quot;&gt;&lt;code class=&quot;hljs language-javascript&quot; style=&quot;box-sizing: border-box; font-family: var(--vscode-editor-font-family, monospace); font-size: var(--vscode-editor-font-size, 12px); white-space: pre-wrap; border-color: currentcolor; color: rgb(0, 0, 0); background-color: transparent !important; padding: 0px !important; border-radius: 0px !important; opacity: 1 !important; border-width: medium !important; border-style: none !important; border-image: none !important; margin: 0px !important;&quot;&gt;&lt;span class=&quot;hljs-title class_&quot; style=&quot;box-sizing: border-box;&quot;&gt;Blog&lt;/span&gt;  &lt;/code&gt;&lt;/pre&gt;" vertex="1">
+          <mxGeometry height="40" width="53" x="551" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-26" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="Msg" vertex="1">
+          <mxGeometry height="40" width="53" x="604" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-38" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="Readme" vertex="1">
+          <mxGeometry height="40" width="53" x="657" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-41" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="include" vertex="1">
+          <mxGeometry x="640" y="400" as="geometry">
+            <mxPoint x="-108" y="-26" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-45" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="page.module.css(shared css)" vertex="1">
+          <mxGeometry height="30" width="160" x="590" y="650" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

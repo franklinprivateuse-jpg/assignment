@@ -26,4 +26,4 @@
 
 | Tool | Assessed Usage Level | Describe Precise Usage |
 |------|---------------------|----------------------|
-| Joy AI (JoyCode) | Level 4 | Used to generate project scaffolding (Vite + React + TypeScript setup), directory structure, boilerplate component code, and CSS styling. All AI-generated code was reviewed, understood, and modified by the student. The student can explain every part of the codebase. |
+| Joy AI (JoyCode) | Level 4 | Used to generate project scaffolding (Vite + React + TypeScript setup), directory structure, boilerplate component code, and CSS styling. All AI-generated code was reviewed and understood by the student. The student can explain every part of the codebase. |
