@@ -1,0 +1,13 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="FwEGItj4xE2rjti-pTGx">
+    <mxGraphModel dx="1030" dy="535" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="IEwL6-zKrRQyvrFcMThk-1" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" value="&lt;span style=&quot;color: rgb(26, 32, 41); font-family: &amp;quot;PingFang SC&amp;quot;; font-size: 16px; white-space: pre-wrap; background-color: rgb(255, 255, 255);&quot;&gt;App&lt;br&gt; ├── Navbar&lt;br&gt; └── AppRouter&lt;br&gt;      ├── Home&lt;br&gt;      ├── About&lt;br&gt;      ├── Education&lt;br&gt;      ├── Knowledge&lt;br&gt;      ├── Gallery&lt;br&gt;      ├── Videos&lt;br&gt;      ├── Blog&lt;br&gt;      ├── BlogDetail (→ react-markdown)&lt;br&gt;      ├── Messaging (→ useChat(component))&lt;br&gt;      └── Readme&lt;/span&gt;&lt;span style=&quot;color: rgb(26, 32, 41); font-family: &amp;quot;PingFang SC&amp;quot;; font-size: 16px; white-space: pre-wrap; background-color: rgb(255, 255, 255);&quot;&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="370" width="370" x="70" y="10" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
