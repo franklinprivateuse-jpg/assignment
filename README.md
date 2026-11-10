@@ -105,7 +105,7 @@ This project follows the coding standards defined in `requirements/coding-standa
 - CSS Modules for component styling
 - Centralized CSS variables for theming
 - No `any` type usage in TypeScript
-- Reserved directories for future features (`utils/`, `i18n/`, `features/`)
+- Reserved directories for future features (`i18n/`, `features/`)
 
 ## Changelog
 
@@ -126,8 +126,8 @@ Issues below were identified during the Phase 1 peer review and have been fixed.
 | C7 | `Gallery.tsx` | Only placeholder text, no real images | Added image with alt text and lazy loading (placeholder photo — see Pending Items) |
 | C8 | `Home.tsx` | Inline styles violated CSS Modules convention | Moved all inline styles into `Home.module.css` |
 | C9 | 12 `.module.css` files | No comments in any CSS Module | Added section comments to all CSS Module files |
-| C10 | `Videos.tsx` | Inconsistent iframe indentation | Unified indentation via Prettier formatting |
-| C11 | `src/assets` | Unused assets; background image misspelled (`background_pricture.png`) | Removed unused files; renamed to `background_picture.png` |
+| C10 | `Videos.tsx` | Inconsistent iframe indentation | Unified indentation manually (Prettier not yet installed — see Pending Items) |
+| C11 | `src/assets` | Unused assets; background image misspelled (`background_pricture.png`) | Removed unused files; renamed to `background_picture.png` (compression to WebP not yet done — see Pending Items) |
 | C12 | `Navbar.module.css` | Mobile nav wrapped into three rows and occupied the screen | Added hamburger menu button with toggle state for screens ≤ 768px |
 | C13 | `BlogDetail.tsx` | Only component without a header comment | Added a concise header comment |
 | C14 | `index.css` | Dark mode only followed system preference; visitors could not toggle | Added light/dark toggle button via `useTheme` hook; choice persisted to localStorage |
@@ -155,7 +155,7 @@ Issues below were identified during the Phase 1 peer review and have been fixed.
 
 ### Pending Items (Not Yet Fixed)
 
-The following items cannot be fully resolved without external dependencies:
+The first four items require external resources or inputs. The remaining items (P1–P9) are planned improvements identified in the peer review that have not yet been implemented.
 
 | ID | Issue | Why It Is Pending |
 |----|-------|-------------------|
@@ -163,3 +163,13 @@ The following items cannot be fully resolved without external dependencies:
 | C7 | Gallery lacks real project/event photos | Real photos must be provided by the site owner. The component structure, alt text, and layout are ready for images to be dropped in. |
 | D6 | References are not academic sources | Replacing web references with peer-reviewed literature requires searching academic databases (IEEE, ACM, etc.) for suitable sources. |
 | D7 | No analysis of the given portfolio brief | The original portfolio assets provided at the start of the module are needed to write the analysis. |
+| P1 | Page data still stored inside components (Home, Videos, Gallery, Knowledge, Education) | Only Blog data was moved to `data/posts.ts`. The remaining pages still hold their data inline; moving each to a separate data file keeps content separate from layout per the coding standards. |
+| P2 | No automated tests | Requires installing Vitest + React Testing Library. Recommended starting point: `useChat` hook (pure logic, no layout dependency). |
+| P3 | No CI/CD pipeline | Requires setting up GitHub Actions to run lint, build, and tests on every push, then deploy to GitHub Pages automatically. |
+| P4 | No Error Boundary | A single component error can blank the entire site. Adding an Error Boundary with a friendly fallback message is recommended. |
+| P5 | No per-page titles or meta descriptions | Each page should set its own `<title>` and a short meta description for browser tabs and search engines. |
+| P6 | No Lighthouse audit | Running Chrome Lighthouse after each iteration would help track accessibility, performance, and best-practice improvements. |
+| P7 | Report: TOC lacks page numbers; abstract does not mention results | The table of contents needs page numbers; the abstract should be extended to summarise the project results. |
+| P8 | README lacks screenshot and requirements/design sections | Adding a screenshot of the live site and a short requirements or design section would make the README more complete. |
+| P9 | Background image not compressed to WebP | `background_picture.png` is still 324 KB. Converting to WebP would reduce every page load. |
+| P10 | Prettier not installed | Prettier with a shared config would keep formatting consistent across the project; currently indentation is fixed manually. |
