@@ -1,17 +1,8 @@
 import styles from './Blog.module.css';
 import layout from '../page.module.css';
 import { Link } from 'react-router-dom';
-import type { BlogPost } from './types';
-
-/** Static blog post data */
-const POSTS: BlogPost[] = [
-  {
-    id: 1,
-    date: '2025-09-01',
-    title: 'What is the Relationship Between React and JavaScript?',
-    excerpt: 'Understanding how React relates to JavaScript and why you need to master JavaScript before learning React.',
-  },
-];
+import { POSTS } from '../../data/posts';
+import { formatReadableDate } from '../../utils/date';
 
 /** Blog page — lists articles and thoughts on software development */
 const Blog: React.FC = () => {
@@ -22,14 +13,10 @@ const Blog: React.FC = () => {
       <div className={styles.postList}>
         {POSTS.map((post) => (
           <article key={post.id} className={styles.postCard}>
-            <div className={styles.postDate}>{post.date}</div>
-            {post.id === 1 ? (
-              <Link to={`/blog/${post.id}`} className={styles.postTitleLink}>
-                <h3 className={styles.postTitle}>{post.title}</h3>
-              </Link>
-            ) : (
+            <div className={styles.postDate}>{formatReadableDate(post.date)}</div>
+            <Link to={`/blog/${post.id}`} className={styles.postTitleLink}>
               <h3 className={styles.postTitle}>{post.title}</h3>
-            )}
+            </Link>
             <p className={styles.postExcerpt}>{post.excerpt}</p>
           </article>
         ))}

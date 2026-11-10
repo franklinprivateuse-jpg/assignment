@@ -1,82 +1,131 @@
 <mxfile host="app.diagrams.net">
-  <diagram name="Page-1" id="INkxCZMUe1oK3lwDyFIe">
-    <mxGraphModel dx="1030" dy="535" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+  <diagram name="Page-1" id="block-diagram-v2">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-36" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="View" vertex="1">
-          <mxGeometry height="144.5" width="600" x="160" y="555.5" as="geometry" />
+        <mxCell id="b_entry" value="Entry Layer" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="30" width="300" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-3" edge="1" parent="1" source="Y0R4DPtyQdDhUmHZvs8r-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Y0R4DPtyQdDhUmHZvs8r-2" value="">
+        <mxCell id="n_main" value="main.tsx" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="60" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="b_app" value="App Layer" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="150" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="n_app" value="App.tsx (HashRouter)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="180" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_main_app" edge="1" source="n_main" target="n_app" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="main.tsx(entry)" vertex="1">
-          <mxGeometry height="40" width="200" x="300" y="290" as="geometry" />
+        <mxCell id="b_view" value="View Layer" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="270" width="900" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-5" edge="1" parent="1" source="Y0R4DPtyQdDhUmHZvs8r-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Y0R4DPtyQdDhUmHZvs8r-4" value="">
+        <mxCell id="n_navbar" value="Navbar" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="300" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n_router" value="AppRouter" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="300" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_app_nav" edge="1" source="n_app" target="n_navbar" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;" value="renders">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-14" connectable="0" parent="Y0R4DPtyQdDhUmHZvs8r-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Text" vertex="1">
-          <mxGeometry relative="1" x="-0.3667" y="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-21" connectable="0" parent="Y0R4DPtyQdDhUmHZvs8r-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="include" vertex="1">
-          <mxGeometry relative="1" x="-0.3724" y="-1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-40" edge="1" parent="1" source="Y0R4DPtyQdDhUmHZvs8r-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Y0R4DPtyQdDhUmHZvs8r-8">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="520" y="430" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-2" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="app.tsx (root component)" vertex="1">
-          <mxGeometry height="40" width="170" x="315" y="360" as="geometry" />
-        </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-4" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="Nar Bar(view)" vertex="1">
-          <mxGeometry height="60" width="120" x="160" y="440" as="geometry" />
-        </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-43" edge="1" parent="1" source="Y0R4DPtyQdDhUmHZvs8r-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Y0R4DPtyQdDhUmHZvs8r-36">
+        <mxCell id="e_app_rtr" edge="1" source="n_app" target="n_router" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;" value="renders">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="approuter(component)" vertex="1">
-          <mxGeometry height="60" width="150" x="570" y="350" as="geometry" />
+        <mxCell id="b_pages" value="Page Layer" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="390" width="980" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-9" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="Home page" vertex="1">
-          <mxGeometry height="40" width="75" x="200" y="600" as="geometry" />
+        <mxCell id="e_rtr_pages" edge="1" source="n_router" target="b_pages" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;" value="routes to">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-11" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="About&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;" vertex="1">
-          <mxGeometry height="40" width="53" x="275" y="600" as="geometry" />
+        <mxCell id="p1" value="Home" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="425" width="80" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-17" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="Edu" vertex="1">
-          <mxGeometry height="40" width="53" x="328" y="600" as="geometry" />
+        <mxCell id="p2" value="About" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="425" width="80" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-18" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="Skills" vertex="1">
-          <mxGeometry height="40" width="64" x="381" y="600" as="geometry" />
+        <mxCell id="p3" value="Education" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="425" width="80" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-19" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="&lt;pre class=&quot;sc-fFubTW jbrcdg&quot; style=&quot;box-sizing: border-box; font-size: 13px; font-family: SFMono-Regular, Consolas, &amp;quot;Liberation Mono&amp;quot;, Menlo, Courier, monospace; margin: 13px 0px; overflow: auto hidden; background-color: var(--vscode-panel-background); border: 1px solid var(--vscode-panel-border, rgba(128, 128, 128, 0.2)); border-radius: 4px; padding: 8px 12px; max-width: calc(-20px + 100vw); text-align: start;&quot;&gt;&lt;code class=&quot;hljs language-javascript&quot; style=&quot;box-sizing: border-box; font-family: var(--vscode-editor-font-family, monospace); font-size: var(--vscode-editor-font-size, 12px); white-space: pre-wrap; border-color: currentcolor; color: rgb(0, 0, 0); background-color: transparent !important; padding: 0px !important; border-radius: 0px !important; opacity: 1 !important; border-width: medium !important; border-style: none !important; border-image: none !important; margin: 0px !important;&quot;&gt;&lt;span class=&quot;hljs-title class_&quot; style=&quot;box-sizing: border-box;&quot;&gt;Videos&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;" vertex="1">
-          <mxGeometry height="40" width="53" x="498" y="600" as="geometry" />
+        <mxCell id="p4" value="Knowledge" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="425" width="80" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-20" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="&lt;pre class=&quot;sc-fFubTW jbrcdg&quot; style=&quot;box-sizing: border-box; font-size: 13px; font-family: SFMono-Regular, Consolas, &amp;quot;Liberation Mono&amp;quot;, Menlo, Courier, monospace; margin: 13px 0px; overflow: auto hidden; background-color: var(--vscode-panel-background); border: 1px solid var(--vscode-panel-border, rgba(128, 128, 128, 0.2)); border-radius: 4px; padding: 8px 12px; max-width: calc(-20px + 100vw); text-align: start;&quot;&gt;&lt;code class=&quot;hljs language-javascript&quot; style=&quot;box-sizing: border-box; font-family: var(--vscode-editor-font-family, monospace); font-size: var(--vscode-editor-font-size, 12px); white-space: pre-wrap; color: rgb(0, 0, 0); background-color: transparent !important; padding: 0px !important; border-radius: 0px !important; opacity: 1 !important; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; border-image: none !important; margin: 0px !important;&quot;&gt;&lt;span class=&quot;hljs-title class_&quot; style=&quot;box-sizing: border-box;&quot;&gt;Gallery&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;" vertex="1">
-          <mxGeometry height="40" width="53" x="445" y="600" as="geometry" />
+        <mxCell id="p5" value="Gallery" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="425" width="80" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-25" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="&lt;pre class=&quot;sc-fFubTW jbrcdg&quot; style=&quot;box-sizing: border-box; font-size: 13px; font-family: SFMono-Regular, Consolas, &amp;quot;Liberation Mono&amp;quot;, Menlo, Courier, monospace; margin: 13px 0px; overflow: auto hidden; background-color: var(--vscode-panel-background); border: 1px solid var(--vscode-panel-border, rgba(128, 128, 128, 0.2)); border-radius: 4px; padding: 8px 12px; max-width: calc(-20px + 100vw); text-align: start;&quot;&gt;&lt;code class=&quot;hljs language-javascript&quot; style=&quot;box-sizing: border-box; font-family: var(--vscode-editor-font-family, monospace); font-size: var(--vscode-editor-font-size, 12px); white-space: pre-wrap; border-color: currentcolor; color: rgb(0, 0, 0); background-color: transparent !important; padding: 0px !important; border-radius: 0px !important; opacity: 1 !important; border-width: medium !important; border-style: none !important; border-image: none !important; margin: 0px !important;&quot;&gt;&lt;span class=&quot;hljs-title class_&quot; style=&quot;box-sizing: border-box;&quot;&gt;Blog&lt;/span&gt;  &lt;/code&gt;&lt;/pre&gt;" vertex="1">
-          <mxGeometry height="40" width="53" x="551" y="600" as="geometry" />
+        <mxCell id="p6" value="Videos" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="425" width="80" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-26" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="Msg" vertex="1">
-          <mxGeometry height="40" width="53" x="604" y="600" as="geometry" />
+        <mxCell id="p7" value="Blog" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="425" width="80" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-38" parent="1" style="whiteSpace=wrap;html=1;rounded=0;" value="Readme" vertex="1">
-          <mxGeometry height="40" width="53" x="657" y="600" as="geometry" />
+        <mxCell id="p8" value="BlogDetail" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="710" y="425" width="80" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-41" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="include" vertex="1">
-          <mxGeometry x="640" y="400" as="geometry">
-            <mxPoint x="-108" y="-26" as="offset" />
-          </mxGeometry>
+        <mxCell id="p9" value="Messaging" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="425" width="80" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Y0R4DPtyQdDhUmHZvs8r-45" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="page.module.css(shared css)" vertex="1">
-          <mxGeometry height="30" width="160" x="590" y="650" as="geometry" />
+        <mxCell id="p10" value="Readme" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="890" y="425" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p11" value="NotFound" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="950" y="465" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="b_logic" value="Logic Layer (hooks / data / utils)" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="530" width="620" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="n_usetheme" value="useTheme" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="565" width="120" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="n_usechat" value="useChat" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="565" width="120" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="n_posts" value="posts.ts" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="565" width="120" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="n_date" value="date.ts" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="565" width="120" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="e_nav_hook" edge="1" source="n_navbar" target="n_usetheme" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;" value="uses">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_msg_hook" edge="1" source="p9" target="n_usechat" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;" value="uses">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="b_style" value="Style Layer" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="650" width="980" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="n_indexcss" value="index.css&#10;(theme variables: light / dark)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="680" width="220" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="n_pagemcss" value="page.module.css&#10;(shared layout)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="680" width="180" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="n_modcss" value="*.module.css&#10;(scoped component styles)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="680" width="200" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="e_theme_hook" edge="1" source="n_usetheme" target="n_indexcss" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;" value="sets data-theme">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="b_ext" value="External Resources" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="530" width="340" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="n_yt" value="YouTube (iframe)" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="565" width="130" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="n_rmd" value="react-markdown" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="870" y="565" width="140" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="e_vid_yt" edge="1" source="p6" target="n_yt" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;" value="embeds">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_rmd" edge="1" source="p10" target="n_rmd" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;" value="renders with">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n_note" value="Note: Each page imports its own CSS Module for scoped styling.&#10;useTheme reads/writes the data-theme attribute on <html> which&#10;switches the CSS variables defined in index.css (light / dark)." style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="100" y="770" width="500" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

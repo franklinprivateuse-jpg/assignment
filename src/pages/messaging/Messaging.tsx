@@ -1,12 +1,18 @@
-import { useState, type FormEvent } from 'react';
+import { useState, useRef, useEffect, type FormEvent } from 'react';
 import { useChat } from '../../hooks/useChat';
 import styles from './Messaging.module.css';
 import layout from '../page.module.css';
 
-/** Messaging page — simple chat interface with auto-reply bot */
+/** Messaging page — chat interface with keyword-based auto-reply and localStorage persistence */
 const Messaging: React.FC = () => {
-  const { messages, sendMessage } = useChat();
+  const { messages, sendMessage, clearMessages } = useChat();
   const [input, setInput] = useState('');
+  const messageEndRef = useRef<HTMLDivElement>(null);
+
+  // Scroll to the newest message whenever the list changes
+  useEffect(() => {
+    messageEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
 
   // Handle form submission: send trimmed message and clear input
   const handleSubmit = (e: FormEvent) => {
@@ -35,6 +41,7 @@ const Messaging: React.FC = () => {
                 {msg.text}
               </div>
             ))}
+            <div ref={messageEndRef} />
           </div>
         )}
         <form className={styles.inputArea} onSubmit={handleSubmit}>
@@ -44,10 +51,21 @@ const Messaging: React.FC = () => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type a message..."
+            aria-label="Type a message"
           />
           <button type="submit" className={styles.sendButton}>
             Send
           </button>
+          {messages.length > 0 && (
+            <button
+              type="button"
+              className={styles.clearButton}
+              onClick={clearMessages}
+              aria-label="Clear all messages"
+            >
+              Clear
+            </button>
+          )}
         </form>
       </div>
     </div>

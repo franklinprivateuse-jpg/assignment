@@ -11,7 +11,13 @@ interface VideoItem {
 
 /** Static list of video entries */
 const VIDEO_LIST: VideoItem[] = [
-  { id: 1, title: 'Learning Software Engineering During the Era of AI', description: 'A talk on how AI is shaping software engineering education and practice.', youtubeId: 'w4rG5GY9IlA' },
+  {
+    id: 1,
+    title: 'Learning Software Engineering During the Era of AI',
+    description:
+      'A talk on how AI is shaping software engineering education and practice. I chose this video because it reflects the challenges and opportunities I face as a student today.',
+    youtubeId: 'w4rG5GY9IlA',
+  },
 ];
 
 /** Videos page — showcases presentations, demos, and tutorials */
@@ -26,11 +32,12 @@ const Videos: React.FC = () => {
         {VIDEO_LIST.map((video) => (
           <div key={video.id} className={styles.videoCard}>
             <iframe
-            src={`https://www.youtube.com/embed/${video.youtubeId}`}
-            title={video.title}
-            allowFullScreen
-            className={styles.videoEmbed}
-          />
+              src={`https://www.youtube.com/embed/${video.youtubeId}`}
+              title={video.title}
+              allowFullScreen
+              loading="lazy"
+              className={styles.videoEmbed}
+            />
             <div className={styles.videoInfo}>
               <h3 className={styles.videoTitle}>{video.title}</h3>
               <p className={styles.videoDesc}>{video.description}</p>

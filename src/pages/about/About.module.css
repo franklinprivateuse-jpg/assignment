@@ -1,3 +1,4 @@
+/* Profile section — avatar and personal description side by side */
 .profileSection {
   display: flex;
   gap: var(--space-xl);
@@ -5,6 +6,7 @@
   margin-bottom: var(--space-xl);
 }
 
+/* Text column next to the avatar */
 .profileInfo {
   flex: 1;
 }
@@ -15,11 +17,12 @@
   margin-bottom: var(--space-md);
 }
 
-.highlight {
-  color: var(--color-primary);
-  font-weight: 600;
+/* Bold emphasis in the normal text colour — does not look like a link */
+.bold {
+  font-weight: 700;
 }
 
+/* Mobile responsive — stack the profile section vertically */
 @media (max-width: 768px) {
   .profileSection {
     flex-direction: column;

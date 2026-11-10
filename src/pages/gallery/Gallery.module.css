@@ -1,20 +1,17 @@
+/* Gallery grid layout */
 .galleryGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: var(--space-md);
 }
 
+/* Card wrapper for each photo */
 .galleryItem {
-  aspect-ratio: 4 / 3;
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-secondary);
-  font-size: 0.875rem;
   overflow: hidden;
+  margin: 0;
   transition: box-shadow 0.2s;
 }
 
@@ -22,7 +19,18 @@
   box-shadow: var(--shadow-md);
 }
 
-.galleryLabel {
+/* Photo image — fills the card with a fixed aspect ratio */
+.galleryImage {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+/* Caption below each photo */
+.galleryCaption {
   padding: var(--space-sm);
   text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
 }

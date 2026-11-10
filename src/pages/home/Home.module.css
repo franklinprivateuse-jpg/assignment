@@ -1,3 +1,4 @@
+/* Hero section — large centred heading at the top of the home page */
 .hero {
   text-align: center;
   padding: var(--space-2xl) var(--space-lg);
@@ -18,6 +19,7 @@
   margin-right: auto;
 }
 
+/* Call-to-action button — primary colour with hover darkening */
 .ctaButton {
   display: inline-block;
   padding: var(--space-sm) var(--space-lg);
@@ -34,6 +36,7 @@
   background: var(--color-primary-dark);
 }
 
+/* Feature card grid — responsive auto-fill layout */
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -41,20 +44,34 @@
   margin-top: var(--space-2xl);
 }
 
+/* Wrapper link around each card — removes default link underline */
+.featureLink {
+  text-decoration: none;
+}
+
+/* Feature card — surface box with hover lift effect */
 .featureCard {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-lg);
   box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s, transform 0.2s;
 }
 
+.featureCard:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Card title — primary colour heading */
 .featureTitle {
   font-size: 1.125rem;
   margin-bottom: var(--space-sm);
   color: var(--color-primary);
 }
 
+/* Card description — secondary text */
 .featureDesc {
   color: var(--color-text-secondary);
   font-size: 0.9375rem;

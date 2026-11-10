@@ -2,6 +2,10 @@
 
 A functional digital portfolio built with React, TypeScript, and Vite.
 
+**Repository:** [https://github.com/franklinprivateuse-jpg/assignment](https://github.com/franklinprivateuse-jpg/assignment)
+
+**Live Demo:** [https://franklinprivateuse-jpg.github.io/assignment](https://franklinprivateuse-jpg.github.io/assignment)
+
 ## Project Structure
 
 ```
@@ -16,9 +20,12 @@ kewei-portfolio/
 │   │   └── navbar/          # Navigation bar component
 │   │       ├── Navbar.tsx
 │   │       └── Navbar.module.css
+│   ├── data/
+│   │   └── posts.ts         # Shared blog post data (typed)
 │   ├── features/            # Feature modules (reserved)
 │   ├── hooks/
-│   │   └── useChat.ts       # Custom hook for messaging functionality
+│   │   ├── useChat.ts       # Custom hook for messaging functionality
+│   │   └── useTheme.ts      # Custom hook for light/dark theme toggle
 │   ├── i18n/                # Internationalization (reserved)
 │   ├── pages/
 │   │   ├── page.module.css  # Shared page layout styles
@@ -30,11 +37,14 @@ kewei-portfolio/
 │   │   ├── videos/          # Video Gallery page - video showcase
 │   │   ├── blog/            # Blog page - articles and posts
 │   │   ├── messaging/       # Instant Messaging page - contact/leave a message
-│   │   └── readme/          # README page - project structure description
-│   ├── utils/               # Utility functions (reserved)
-│   ├── App.tsx              # Root component with layout and router
+│   │   ├── notfound/        # 404 page - shown for unknown URLs
+│   │   └── readme/          # README page - renders README.md dynamically
+│   ├── utils/
+│   │   └── date.ts          # Date formatting utility
+│   ├── App.tsx              # Root component with layout and HashRouter
 │   ├── index.css            # Global styles and CSS variables
-│   └── main.tsx             # Application entry point
+│   ├── main.tsx             # Application entry point
+│   └── vite-env.d.ts        # Vite type declarations
 ├── index.html               # HTML template
 ├── package.json             # Dependencies and scripts
 ├── tsconfig.json            # TypeScript configuration
@@ -56,15 +66,17 @@ kewei-portfolio/
 | Video Gallery | `/videos` | Video gallery with YouTube embed |
 | Blog | `/blog` | Blog articles and posts |
 | Instant Messaging | `/messaging` | Contact form with auto-reply |
-| README | `/readme` | Project structure documentation |
+| README | `/readme` | Renders this README.md file dynamically |
+| NotFound | `*` | 404 page for unknown URLs |
 
 ## Tech Stack
 
 - **Framework:** React 19
 - **Language:** TypeScript
 - **Build Tool:** Vite
-- **Routing:** React Router DOM v7
+- **Routing:** React Router DOM v7 (HashRouter for static hosting compatibility)
 - **Styling:** CSS Modules with centralized theme variables
+- **Markdown Rendering:** react-markdown (renders README.md on the README page)
 
 ## Getting Started
 
@@ -80,6 +92,9 @@ npm run build
 
 # Preview production build
 npm run preview
+
+# Deploy to GitHub Pages (builds and pushes dist/ to gh-pages branch)
+npm run deploy
 ```
 
 ## Coding Standards
@@ -91,3 +106,60 @@ This project follows the coding standards defined in `requirements/coding-standa
 - Centralized CSS variables for theming
 - No `any` type usage in TypeScript
 - Reserved directories for future features (`utils/`, `i18n/`, `features/`)
+
+## Changelog
+
+### Peer Review Fixes (November 2026)
+
+Issues below were identified during the Phase 1 peer review and have been fixed.
+
+#### Code Fixes (C1–C16)
+
+| ID | File | Issue | Fix |
+|----|------|-------|-----|
+| C1 | `AppRouter.tsx` | No catch-all route; unknown URLs showed a blank page | Added `<Route path="*">` pointing to the NotFound page |
+| C2 | `Blog.tsx` | Only the article with id=1 had a link | Added `<Link>` for every article by id |
+| C3 | `Blog.tsx` / `BlogDetail.tsx` / `types.ts` | Title and date stored twice; BlogDetail defined its own type; `content` field unused | Extracted a single typed `posts.ts` data file shared by both pages |
+| C4 | `useChat.ts` | Messages lost on refresh; replies were random | Messages now persist to localStorage; replies use keyword matching (partial — see Pending Items) |
+| C5 | `Messaging.tsx` | No auto-scroll to latest message; input had no label | Added `useRef` + `scrollIntoView`; added `aria-label` |
+| C6 | `Education.tsx` | JD.com work experience listed under Education; mixed Chinese/English; `date` used as key | Moved to Experience section; unified to English; switched to `id` as key |
+| C7 | `Gallery.tsx` | Only placeholder text, no real images | Added image with alt text and lazy loading (placeholder photo — see Pending Items) |
+| C8 | `Home.tsx` | Inline styles violated CSS Modules convention | Moved all inline styles into `Home.module.css` |
+| C9 | 12 `.module.css` files | No comments in any CSS Module | Added section comments to all CSS Module files |
+| C10 | `Videos.tsx` | Inconsistent iframe indentation | Unified indentation via Prettier formatting |
+| C11 | `src/assets` | Unused assets; background image misspelled (`background_pricture.png`) | Removed unused files; renamed to `background_picture.png` |
+| C12 | `Navbar.module.css` | Mobile nav wrapped into three rows and occupied the screen | Added hamburger menu button with toggle state for screens ≤ 768px |
+| C13 | `BlogDetail.tsx` | Only component without a header comment | Added a concise header comment |
+| C14 | `index.css` | Dark mode only followed system preference; visitors could not toggle | Added light/dark toggle button via `useTheme` hook; choice persisted to localStorage |
+| C15 | `About.module.css` | Highlighted words used link colour, appearing clickable but not clickable | Changed to normal colour with bold weight |
+| C16 | `Blog.tsx` | Dates displayed in raw, unreadable format | Formatted with `toLocaleDateString` |
+
+#### Documentation & Design Fixes (D1–D5)
+
+| ID | Object | Issue | Fix |
+|----|--------|-------|-----|
+| D1 | Report: Phase Plan | Completed features were planned in Phase 2 | Moved Dark Mode, Error Handling, and Responsive Design into Phase 1; added a "Plan Changes" subsection explaining the reasons |
+| D2 | Report: Requirements | No personas, scenarios, user stories, or non-functional requirements | Added 3 personas (recruiter, client, peer reviewer) with scenarios; added FR-01–FR-12 user stories and NFR-01–NFR-06 non-functional requirements |
+| D3 | Control Flow Diagram | Diagram showed a 404 page that did not exist in code | Implemented the NotFound page to match the diagram |
+| D4 | Block & Component Diagrams | Component diagram was a text tree; missing CSS/theme/YouTube dependencies | Redrew both diagrams with nodes, dependency arrows, and all layers (Entry → App → View → Page → Logic → Style → External) |
+| D5 | README file & page | No online/repository links; README page was standalone text | Added repository and Live Demo links to README; README page now renders `README.md` dynamically via `react-markdown` + Vite `?raw` import |
+
+#### Deployment Compatibility Fix
+
+| Issue | Fix |
+|-------|-----|
+| BrowserRouter returns 404 on GitHub Pages when refreshing sub-routes (e.g. `/about`) | Switched from BrowserRouter to HashRouter in `App.tsx` for static hosting compatibility |
+| Asset paths broke on GitHub Pages (served under `/assignment/` sub-path) | Set `base: '/assignment/'` in `vite.config.ts`; deployed `dist/` to the `gh-pages` branch |
+
+**Live Demo deployed and verified:** [https://franklinprivateuse-jpg.github.io/assignment](https://franklinprivateuse-jpg.github.io/assignment)
+
+### Pending Items (Not Yet Fixed)
+
+The following items cannot be fully resolved without external dependencies:
+
+| ID | Issue | Why It Is Pending |
+|----|-------|-------------------|
+| C4 | Chat is not real instant messaging | A true chat backend (Firebase, custom API, etc.) is required for message delivery to the author and multi-device sync. Current solution uses localStorage + keyword-matched replies as a transitional approach. |
+| C7 | Gallery lacks real project/event photos | Real photos must be provided by the site owner. The component structure, alt text, and layout are ready for images to be dropped in. |
+| D6 | References are not academic sources | Replacing web references with peer-reviewed literature requires searching academic databases (IEEE, ACM, etc.) for suitable sources. |
+| D7 | No analysis of the given portfolio brief | The original portfolio assets provided at the start of the module are needed to write the analysis. |

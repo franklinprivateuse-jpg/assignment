@@ -1,3 +1,4 @@
+/* Page layout container — centres content within the max width */
 .container {
   max-width: var(--max-width);
   width: 100%;
@@ -6,6 +7,7 @@
   flex: 1;
 }
 
+/* Page heading and subtitle */
 .title {
   font-size: 2rem;
   margin-bottom: var(--space-lg);
@@ -18,10 +20,12 @@
   margin-bottom: var(--space-md);
 }
 
+/* Generic content section wrapper */
 .section {
   margin-bottom: var(--space-xl);
 }
 
+/* Card — generic surface box used across pages */
 .card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -30,6 +34,7 @@
   box-shadow: var(--shadow-sm);
 }
 
+/* Responsive card grid */
 .cardGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

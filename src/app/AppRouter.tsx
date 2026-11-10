@@ -10,6 +10,7 @@ import Blog from '../pages/blog/Blog';
 import BlogDetail from '../pages/blog/BlogDetail';
 import Messaging from '../pages/messaging/Messaging';
 import Readme from '../pages/readme/Readme';
+import NotFound from '../pages/notfound/NotFound';
 
 /** Central route configuration — maps URL paths to page components */
 const AppRouter: React.FC = () => {
@@ -25,6 +26,7 @@ const AppRouter: React.FC = () => {
       <Route path="/blog/:id" element={<BlogDetail />} />
       <Route path="/messaging" element={<Messaging />} />
       <Route path="/readme" element={<Readme />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

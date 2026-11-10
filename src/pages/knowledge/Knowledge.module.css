@@ -1,7 +1,9 @@
+/* Skill category block — one per technology group */
 .skillCategory {
   margin-bottom: var(--space-xl);
 }
 
+/* Category heading — primary colour with bottom border */
 .categoryTitle {
   font-size: 1.125rem;
   color: var(--color-primary);
@@ -10,12 +12,14 @@
   border-bottom: 2px solid var(--color-primary-border);
 }
 
+/* Tag list — flexible wrap of skill pills */
 .skillList {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-sm);
 }
 
+/* Individual skill tag — pill-shaped with primary tint */
 .skillTag {
   display: inline-block;
   padding: var(--space-xs) var(--space-md);

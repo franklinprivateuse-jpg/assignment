@@ -10,15 +10,16 @@ const About: React.FC = () => {
       <div className={styles.profileSection}>
         <div className={styles.profileInfo}>
           <p>
-            I am <span className={styles.highlight}>Kewei</span>, a Software Engineering student at the
+            I am <strong className={styles.bold}>Kewei</strong>, a Software Engineering student at the
             University of Limerick. I have been working in the software industry for
-            <span className={styles.highlight}> seven years</span>, with experience at
-            Fortune 500 companies <span className={styles.highlight}>JD.com</span> and{' '}
-            <span className={styles.highlight}>Longfor.com</span>, as well as the Singapore-based
-            company <span className={styles.highlight}>Advance.ai</span>.
+            <strong className={styles.bold}> seven years</strong>, with experience at
+            Fortune 500 companies{' '}
+            <a href="https://www.jd.com" target="_blank" rel="noopener noreferrer">JD.com</a> and{' '}
+            <a href="https://www.longfor.com" target="_blank" rel="noopener noreferrer">Longfor.com</a>, as well as the Singapore-based
+            company <a href="https://www.advance.ai" target="_blank" rel="noopener noreferrer">Advance.ai</a>.
           </p>
           <p>
-            I primarily work on <span className={styles.highlight}>backend development</span>,
+            I primarily work on <strong className={styles.bold}>backend development</strong>,
             with extensive experience in building scalable and robust server-side systems.
           </p>
           <p>

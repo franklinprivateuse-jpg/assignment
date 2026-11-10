@@ -1,11 +1,128 @@
 <mxfile host="app.diagrams.net">
-  <diagram name="Page-1" id="FwEGItj4xE2rjti-pTGx">
-    <mxGraphModel dx="1030" dy="535" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+  <diagram name="Page-1" id="component-diagram-v2">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="950" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="IEwL6-zKrRQyvrFcMThk-1" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" value="&lt;span style=&quot;color: rgb(26, 32, 41); font-family: &amp;quot;PingFang SC&amp;quot;; font-size: 16px; white-space: pre-wrap; background-color: rgb(255, 255, 255);&quot;&gt;App&lt;br&gt; ├── Navbar&lt;br&gt; └── AppRouter&lt;br&gt;      ├── Home&lt;br&gt;      ├── About&lt;br&gt;      ├── Education&lt;br&gt;      ├── Knowledge&lt;br&gt;      ├── Gallery&lt;br&gt;      ├── Videos&lt;br&gt;      ├── Blog&lt;br&gt;      ├── BlogDetail (→ react-markdown)&lt;br&gt;      ├── Messaging (→ useChat(component))&lt;br&gt;      └── Readme&lt;/span&gt;&lt;span style=&quot;color: rgb(26, 32, 41); font-family: &amp;quot;PingFang SC&amp;quot;; font-size: 16px; white-space: pre-wrap; background-color: rgb(255, 255, 255);&quot;&gt;&lt;/span&gt;" vertex="1">
-          <mxGeometry height="370" width="370" x="70" y="10" as="geometry" />
+        <mxCell id="n_main" value="main.tsx (entry)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="30" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n_app" value="App.tsx (HashRouter)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="110" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_main_app" edge="1" source="n_main" target="n_app" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n_navbar" value="Navbar" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="210" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n_router" value="AppRouter" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="210" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_app_navbar" edge="1" source="n_app" target="n_navbar" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;" value="renders">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_app_router" edge="1" source="n_app" target="n_router" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;" value="renders">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n_pages_box" value="Pages (routed by AppRouter)" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="310" width="1280" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="e_router_pages" edge="1" source="n_router" target="n_pages_box" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;" value="routes to">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p_home" value="Home" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="345" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p_about" value="About" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="345" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p_edu" value="Education" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="345" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p_know" value="Knowledge" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="345" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p_gallery" value="Gallery" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="345" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p_videos" value="Videos" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="345" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p_blog" value="Blog" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="345" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p_blogdet" value="BlogDetail" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="395" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p_msg" value="Messaging" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="395" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p_readme" value="Readme" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="395" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p_notfound" value="NotFound" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="395" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="n_usetheme" value="useTheme (hook)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="520" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n_usechat" value="useChat (hook)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="520" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n_posts" value="posts.ts (data)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="520" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n_date" value="date.ts (util)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="520" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_nav_theme" edge="1" source="n_navbar" target="n_usetheme" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;" value="uses">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_msg_chat" edge="1" source="p_msg" target="n_usechat" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;" value="uses">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_blog_posts" edge="1" source="p_blog" target="n_posts" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;" value="imports">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_blogdet_posts" edge="1" source="p_blogdet" target="n_posts" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;" value="imports">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_blogdet_date" edge="1" source="p_blogdet" target="n_date" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;" value="imports">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n_md" value="react-markdown" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="640" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n_yt" value="YouTube (iframe)" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="640" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n_readmemd" value="README.md (?raw)" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="640" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n_galpng" value="gallery.png" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="640" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_readme_md" edge="1" source="p_readme" target="n_md" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;" value="renders with">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_readme_raw" edge="1" source="p_readme" target="n_readmemd" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;" value="imports ?raw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_videos_yt" edge="1" source="p_videos" target="n_yt" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;" value="embeds">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_gallery_png" edge="1" source="p_gallery" target="n_galpng" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;" value="displays">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n_indexcss" value="index.css (Theme Variables: light / dark via data-theme)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="760" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n_pagemcss" value="page.module.css (shared layout)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="760" width="250" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="n_note" value="Note: Every page component imports its own .module.css for scoped styles,&#10;and all components inherit theme variables from index.css (data-theme attribute&#10;set by useTheme hook)." style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="250" y="830" width="500" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

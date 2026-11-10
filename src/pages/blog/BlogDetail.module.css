@@ -1,3 +1,4 @@
+/* Back-to-blog navigation link */
 .backLink {
   display: inline-block;
   color: var(--color-text-secondary);
@@ -11,18 +12,21 @@
   color: var(--color-text-heading);
 }
 
+/* Post metadata — publication date */
 .postDate {
   font-size: 0.8125rem;
   color: var(--color-text-secondary);
   margin-bottom: var(--space-lg);
 }
 
+/* Article body — base text styles */
 .postContent {
   color: var(--color-text-secondary);
   font-size: 1rem;
   line-height: 1.8;
 }
 
+/* Article body — section headings */
 .postContent h2 {
   margin-top: var(--space-lg);
   margin-bottom: var(--space-sm);
@@ -37,10 +41,12 @@
   font-size: 1.25rem;
 }
 
+/* Article body — paragraph spacing */
 .postContent p {
   margin-bottom: var(--space-md);
 }
 
+/* Article body — list indentation and spacing */
 .postContent ul,
 .postContent ol {
   padding-left: var(--space-lg);
@@ -51,11 +57,13 @@
   margin-bottom: var(--space-xs);
 }
 
+/* Article body — inline emphasis */
 .postContent strong {
   color: var(--color-text-heading);
   font-weight: 600;
 }
 
+/* Article body — inline code */
 .postContent code {
   font-family: var(--font-mono);
   background: var(--color-bg-secondary);

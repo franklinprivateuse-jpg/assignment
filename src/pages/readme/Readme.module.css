@@ -1,3 +1,4 @@
+/* README content panel — rendered markdown inside a surface card */
 .readmeContent {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -6,6 +7,16 @@
   box-shadow: var(--shadow-sm);
 }
 
+/* Top-level heading (h1) — page title from README.md */
+.readmeContent h1 {
+  font-size: 1.75rem;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Section headings — primary colour, first heading flush to top */
 .readmeContent h2 {
   margin-top: var(--space-lg);
   margin-bottom: var(--space-sm);
@@ -16,6 +27,15 @@
   margin-top: 0;
 }
 
+/* Sub-section headings */
+.readmeContent h3 {
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-xs);
+  color: var(--color-text-heading);
+  font-size: 1.125rem;
+}
+
+/* Body text and list items */
 .readmeContent p,
 .readmeContent li {
   color: var(--color-text-secondary);
@@ -23,15 +43,74 @@
   margin-bottom: var(--space-sm);
 }
 
-.readmeContent ul {
+/* Unordered and ordered list indentation */
+.readmeContent ul,
+.readmeContent ol {
   padding-left: var(--space-lg);
   margin-bottom: var(--space-md);
 }
 
+/* Inline links */
+.readmeContent a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.readmeContent a:hover {
+  color: var(--color-primary-dark);
+}
+
+/* Inline code — monospace with subtle background */
 .readmeContent code {
   font-family: var(--font-mono);
   background: var(--color-bg-secondary);
   padding: 2px 6px;
   border-radius: var(--radius-sm);
   font-size: 0.875rem;
+}
+
+/* Fenced code blocks — pre > code from markdown */
+.readmeContent pre {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  overflow-x: auto;
+  margin-bottom: var(--space-md);
+}
+
+.readmeContent pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+/* Tables — Pages overview in README.md */
+.readmeContent table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--space-md);
+}
+
+.readmeContent th,
+.readmeContent td {
+  text-align: left;
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+}
+
+.readmeContent th {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-heading);
+  font-weight: 600;
+}
+
+/* Bold text */
+.readmeContent strong {
+  color: var(--color-text-heading);
+  font-weight: 600;
 }

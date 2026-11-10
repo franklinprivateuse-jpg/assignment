@@ -17,6 +17,8 @@ const FEATURES: Feature[] = [
   { title: 'Gallery', description: 'Photo gallery of projects and events.', link: '/gallery' },
   { title: 'Videos', description: 'Video showcases and presentations.', link: '/videos' },
   { title: 'Blog', description: 'Articles and thoughts on technology.', link: '/blog' },
+  { title: 'Messaging', description: 'Send me a message and get an auto-reply.', link: '/messaging' },
+  { title: 'README', description: 'Project overview and documentation.', link: '/readme' },
 ];
 
 /** Home page — hero section and feature overview cards */
@@ -35,7 +37,7 @@ const Home: React.FC = () => {
 
       <section className={styles.features}>
         {FEATURES.map((feature) => (
-          <Link key={feature.link} to={feature.link} style={{ textDecoration: 'none' }}>
+          <Link key={feature.link} to={feature.link} className={styles.featureLink}>
             <div className={styles.featureCard}>
               <h3 className={styles.featureTitle}>{feature.title}</h3>
               <p className={styles.featureDesc}>{feature.description}</p>

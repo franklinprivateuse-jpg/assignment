@@ -1,0 +1,41 @@
+/* Centered container for the 404 content */
+.notFound {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+}
+
+/* Large 404 error code */
+.errorCode {
+  font-size: 5rem;
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+/* Main "Page Not Found" message */
+.message {
+  font-size: 1.5rem;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-sm);
+}
+
+/* Supporting detail text */
+.detail {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xl);
+}
+
+/* Link button back to the home page */
+.homeLink {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--color-primary);
+  color: var(--color-bg);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.homeLink:hover {
+  background: var(--color-primary-dark);
+  text-decoration: none;
+}

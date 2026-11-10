@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useTheme } from '../../hooks/useTheme';
 import styles from './Navbar.module.css';
 
 /** Navigation link configuration */
@@ -20,14 +22,32 @@ const NAV_ITEMS: NavItem[] = [
   { to: '/readme', label: 'README' },
 ];
 
-/** Top navigation bar with brand logo and page links */
+/** Top navigation bar with brand logo, page links, theme toggle and mobile menu */
 const Navbar: React.FC = () => {
+  const { theme, toggleTheme } = useTheme();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Close the mobile menu when a link is clicked
+  const handleLinkClick = () => setMenuOpen(false);
+
   return (
     <nav className={styles.navbar}>
-      <NavLink to="/" className={styles.brand}>
-        Kewei
-      </NavLink>
-      <ul className={styles.navLinks}>
+      <div className={styles.navLeft}>
+        <NavLink to="/" className={styles.brand}>
+          Kewei
+        </NavLink>
+        <button
+          className={styles.menuButton}
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+        >
+          <span className={styles.menuIcon} />
+        </button>
+      </div>
+      <ul
+        className={`${styles.navLinks} ${menuOpen ? styles.navLinksOpen : ''}`}
+      >
         {NAV_ITEMS.map((item) => (
           <li key={item.to}>
             <NavLink
@@ -38,12 +58,20 @@ const Navbar: React.FC = () => {
               }
               // Exact match for the home route to prevent false positives
               end={item.to === '/'}
+              onClick={handleLinkClick}
             >
               {item.label}
             </NavLink>
           </li>
         ))}
       </ul>
+      <button
+        className={styles.themeToggle}
+        onClick={toggleTheme}
+        aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+      >
+        {theme === 'dark' ? '☀' : '☾'}
+      </button>
     </nav>
   );
 };

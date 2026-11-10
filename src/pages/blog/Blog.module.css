@@ -1,9 +1,11 @@
+/* Post list — vertical stack of blog post cards */
 .postList {
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
 }
 
+/* Card wrapper for a single blog post summary */
 .postCard {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -17,18 +19,21 @@
   box-shadow: var(--shadow-md);
 }
 
+/* Post metadata — publication date */
 .postDate {
   font-size: 0.8125rem;
   color: var(--color-text-secondary);
   margin-bottom: var(--space-xs);
 }
 
+/* Post heading */
 .postTitle {
   font-size: 1.25rem;
   color: var(--color-text-heading);
   margin-bottom: var(--space-sm);
 }
 
+/* Link wrapping the title — inherits colour, underlines on hover */
 .postTitleLink {
   text-decoration: none;
   color: inherit;
@@ -38,6 +43,7 @@
   text-decoration: underline;
 }
 
+/* Short summary text under each title */
 .postExcerpt {
   color: var(--color-text-secondary);
   font-size: 0.9375rem;

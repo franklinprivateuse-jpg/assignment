@@ -1,8 +1,10 @@
+/* Timeline container — vertical line on the left with item markers */
 .timeline {
   position: relative;
   padding-left: var(--space-xl);
 }
 
+/* Vertical line running through the timeline */
 .timeline::before {
   content: '';
   position: absolute;
@@ -13,6 +15,7 @@
   background: var(--color-border);
 }
 
+/* Single timeline entry — card with border and shadow */
 .timelineItem {
   position: relative;
   margin-bottom: var(--space-xl);
@@ -23,6 +26,7 @@
   box-shadow: var(--shadow-sm);
 }
 
+/* Circular marker on the timeline line for each entry */
 .timelineItem::before {
   content: '';
   position: absolute;
@@ -35,6 +39,7 @@
   border: 2px solid var(--color-bg);
 }
 
+/* Entry date — highlighted in the primary colour */
 .timelineDate {
   font-size: 0.875rem;
   color: var(--color-primary);
@@ -42,12 +47,14 @@
   margin-bottom: var(--space-xs);
 }
 
+/* School or company name */
 .timelineSchool {
   font-size: 1.125rem;
   color: var(--color-text-heading);
   margin-bottom: var(--space-xs);
 }
 
+/* Supporting detail text under each entry */
 .timelineDetail {
   color: var(--color-text-secondary);
   font-size: 0.9375rem;
