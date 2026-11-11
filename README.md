@@ -38,7 +38,8 @@ kewei-portfolio/
 │   │   ├── blog/            # Blog page - articles and posts
 │   │   ├── messaging/       # Instant Messaging page - contact/leave a message
 │   │   ├── notfound/        # 404 page - shown for unknown URLs
-│   │   └── readme/          # README page - renders README.md dynamically
+│   │   ├── readme/          # Project page - renders intro.md
+│   │   └── admin/           # Admin page - owner-only message dashboard
 │   ├── utils/
 │   │   └── date.ts          # Date formatting utility
 │   ├── App.tsx              # Root component with layout and HashRouter
@@ -65,8 +66,9 @@ kewei-portfolio/
 | Pictures Gallery | `/gallery` | Photo gallery showcase |
 | Video Gallery | `/videos` | Video gallery with YouTube embed |
 | Blog | `/blog` | Blog articles and posts |
-| Instant Messaging | `/messaging` | Contact form with auto-reply |
-| README | `/readme` | Renders this README.md file dynamically |
+| Instant Messaging | `/messaging` | Contact form with auto-reply, backed by portfolio API |
+| Project | `/readme` | Concise project overview (intro.md) |
+| Admin | `/admin` | Owner-only dashboard: view all visitor messages (hidden from navbar) |
 | NotFound | `*` | 404 page for unknown URLs |
 
 ## Tech Stack
@@ -76,7 +78,8 @@ kewei-portfolio/
 - **Build Tool:** Vite
 - **Routing:** React Router DOM v7 (HashRouter for static hosting compatibility)
 - **Styling:** CSS Modules with centralized theme variables
-- **Markdown Rendering:** react-markdown (renders README.md on the README page)
+- **Markdown Rendering:** react-markdown (renders intro.md on the Project page)
+- **Backend:** Spring Boot + H2 ([kewei-portfolio-api](https://github.com/franklinprivateuse-jpg/kewei-portfolio-api)) — chat messages and auto-reply
 
 ## Getting Started
 
@@ -153,13 +156,26 @@ Issues below were identified during the Phase 1 peer review and have been fixed.
 
 **Live Demo deployed and verified:** [https://franklinprivateuse-jpg.github.io/assignment](https://franklinprivateuse-jpg.github.io/assignment)
 
+### Backend Integration (November 2026)
+
+Connected the frontend to the Spring Boot backend API ([kewei-portfolio-api](https://github.com/franklinprivateuse-jpg/kewei-portfolio-api)).
+
+| File | Change |
+|------|--------|
+| `src/hooks/useChat.ts` | Rewritten from local-only (localStorage + fake replies) to backend REST API calls (POST/GET/DELETE `/api/v1/messages`); sessionId persisted in localStorage; loading/error states |
+| `vite.config.ts` | Added dev-server proxy (`/api` → `localhost:8080`) so the frontend and backend share the same origin in development |
+| `src/pages/admin/Admin.tsx` + `Admin.module.css` | New Admin page: token login, view all visitor messages grouped by session (GET `/api/v1/messages/all` with `X-Admin-Token` header); route `/admin` hidden from navbar |
+| `src/pages/messaging/Messaging.tsx` | Loading/error states (disable input while sending, error banner); privacy note telling visitors the owner can see their messages |
+| `src/pages/readme/Readme.tsx` + `intro.md` | README page now renders a concise `intro.md` instead of the full repository README (which contains developer-only changelogs) |
+| `src/components/navbar/Navbar.tsx` | Renamed "README" nav label to "Project" |
+
 ### Pending Items (Not Yet Fixed)
 
 The first four items require external resources or inputs. The remaining items (P1–P9) are planned improvements identified in the peer review that have not yet been implemented.
 
 | ID | Issue | Why It Is Pending |
 |----|-------|-------------------|
-| C4 | Chat is not real instant messaging | A true chat backend (Firebase, custom API, etc.) is required for message delivery to the author and multi-device sync. Current solution uses localStorage + keyword-matched replies as a transitional approach. |
+| C4 | ~~Chat is not real instant messaging~~ **Resolved** | Chat now uses the Spring Boot backend API (`kewei-portfolio-api`) for message persistence and auto-reply. See "Backend Integration" section above. |
 | C7 | Gallery lacks real project/event photos | Real photos must be provided by the site owner. The component structure, alt text, and layout are ready for images to be dropped in. |
 | D6 | References are not academic sources | Replacing web references with peer-reviewed literature requires searching academic databases (IEEE, ACM, etc.) for suitable sources. |
 | D7 | No analysis of the given portfolio brief | The original portfolio assets provided at the start of the module are needed to write the analysis. |
