@@ -112,7 +112,7 @@ This project follows the coding standards defined in `requirements/coding-standa
 
 ## Changelog
 
-### Peer Review Fixes (November 2026)
+### v0.1.0 — Peer Review Fixes (November 2026)
 
 Issues below were identified during the Phase 1 peer review and have been fixed.
 
@@ -156,7 +156,7 @@ Issues below were identified during the Phase 1 peer review and have been fixed.
 
 **Live Demo deployed and verified:** [https://franklinprivateuse-jpg.github.io/assignment](https://franklinprivateuse-jpg.github.io/assignment)
 
-### Backend Integration (November 2026)
+### v0.2.0 — Backend Integration (November 2026)
 
 Connected the frontend to the Spring Boot backend API ([kewei-portfolio-api](https://github.com/franklinprivateuse-jpg/kewei-portfolio-api)).
 
