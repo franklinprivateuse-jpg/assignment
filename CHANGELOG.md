@@ -20,7 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Project page now renders `intro.md` instead of the full repository README (which contains developer-only changelogs)
 - Navbar label "README" renamed to "Project"
 
-## [0.1.0] - 2026-11-01
+## [0.1.0] - 2026-11-10
 
 ### Added
 - Mobile hamburger menu for screens ≤ 768px (C12)
