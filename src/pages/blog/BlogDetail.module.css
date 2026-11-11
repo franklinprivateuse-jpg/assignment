@@ -12,6 +12,13 @@
   color: var(--color-text-heading);
 }
 
+/* Loading / error state message */
+.statusMessage {
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+  padding: var(--space-lg) 0;
+}
+
 /* Post metadata — publication date */
 .postDate {
   font-size: 0.8125rem;

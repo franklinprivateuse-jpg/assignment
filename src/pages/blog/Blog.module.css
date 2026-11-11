@@ -49,3 +49,10 @@
   font-size: 0.9375rem;
   line-height: 1.6;
 }
+
+/* Loading / error / empty state message */
+.statusMessage {
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+  padding: var(--space-lg) 0;
+}

@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Blog management panel on the Admin page (`/admin` → "Blog Posts" tab) — create, edit, and delete posts via the admin API (POST/PUT/DELETE `/api/v1/posts` with `X-Admin-Token` header); tab switcher between Messages and Blog Posts panels
+- `useAdminPosts` hook for admin blog CRUD operations with automatic list refresh after each mutation
+
+### Changed
+- Blog page (`/blog`) now fetches post list from the backend API (`GET /api/v1/posts`) instead of hardcoded data
+- Blog detail page (`/blog/:id`) now fetches post content from the backend API (`GET /api/v1/posts/{id}`) instead of hardcoded data
+
+### Removed
+- `src/data/posts.ts` — hardcoded blog posts replaced by database-backed API (FR5: posts stored in database, not hardcoded)
+
 ## [0.2.0] - 2026-11-11
 
 ### Added

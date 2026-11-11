@@ -1,0 +1,234 @@
+/* Toolbar — post count on the left, "New Post" button on the right */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+/* Post count text next to the new button */
+.count {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+/* Primary "+ New Post" button */
+.newButton {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-primary);
+  color: var(--color-bg);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.newButton:hover {
+  background: var(--color-primary-dark);
+}
+
+/* Inline error message (load/create/update/delete failure) */
+.errorText {
+  margin-bottom: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-error);
+  font-size: 0.875rem;
+  border: 1px solid var(--color-error);
+  border-radius: var(--radius-md);
+}
+
+/* Loading / empty-state hint text */
+.statusMessage {
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+  margin-top: var(--space-md);
+}
+
+/* Create / edit form — card-like box */
+.postForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.formTitle {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Label + input pairs stacked vertically */
+.fieldLabel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.fieldInput {
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.fieldInput:focus {
+  border-color: var(--color-primary);
+}
+
+/* Larger textarea for Markdown content */
+.fieldTextarea {
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  font-family: monospace;
+  line-height: 1.6;
+  background: var(--color-bg);
+  color: var(--color-text);
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.2s;
+}
+
+.fieldTextarea:focus {
+  border-color: var(--color-primary);
+}
+
+/* Save / Cancel button row */
+.formActions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.saveButton {
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--color-primary);
+  color: var(--color-bg);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.saveButton:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+}
+
+.saveButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cancelButton {
+  padding: var(--space-sm) var(--space-lg);
+  background: transparent;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.cancelButton:hover {
+  color: var(--color-text);
+  border-color: var(--color-text);
+}
+
+/* Vertical stack of post rows */
+.postList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* One row per post: info on the left, action buttons on the right */
+.postRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.postInfo {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+  min-width: 0;
+}
+
+.postDate {
+  font-family: monospace;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.postTitle {
+  font-size: 0.9375rem;
+  color: var(--color-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.postActions {
+  display: flex;
+  gap: var(--space-xs);
+  flex-shrink: 0;
+}
+
+.editButton {
+  padding: var(--space-xs) var(--space-sm);
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 0.8125rem;
+  transition: background 0.2s;
+}
+
+.editButton:hover {
+  background: var(--color-primary);
+  color: var(--color-bg);
+}
+
+.deleteButton {
+  padding: var(--space-xs) var(--space-sm);
+  background: transparent;
+  color: var(--color-error);
+  border: 1px solid var(--color-error);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 0.8125rem;
+  transition: background 0.2s;
+}
+
+.deleteButton:hover {
+  background: var(--color-error);
+  color: var(--color-bg);
+}

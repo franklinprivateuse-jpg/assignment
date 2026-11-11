@@ -114,6 +114,7 @@ This project follows the coding standards defined in `requirements/coding-standa
 
 Version history follows the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format.
 See [`CHANGELOG.md`](CHANGELOG.md) for the full changelog.
+Standards: [Changelog Standards](requirements/changelog-standards.md)
 
 ### Pending Items (Not Yet Fixed)
 
