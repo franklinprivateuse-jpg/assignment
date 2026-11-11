@@ -19,7 +19,7 @@ const NAV_ITEMS: NavItem[] = [
   { to: '/videos', label: 'Videos' },
   { to: '/blog', label: 'Blog' },
   { to: '/messaging', label: 'Messaging' },
-  { to: '/readme', label: 'README' },
+  { to: '/readme', label: 'Project' },
 ];
 
 /** Top navigation bar with brand logo, page links, theme toggle and mobile menu */

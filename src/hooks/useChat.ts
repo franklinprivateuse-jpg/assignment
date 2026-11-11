@@ -1,116 +1,119 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 
-/** A single chat message from either the user or the bot */
+/** A single chat message from either the user or the bot.
+ *  Field names match the backend MessageVO (id, text, sender). */
 interface Message {
   id: number;
   text: string;
   sender: 'user' | 'bot';
 }
 
-/** localStorage key for persisting chat messages */
-const STORAGE_KEY = 'portfolio-chat-messages';
+/** localStorage key for persisting the visitor's session ID */
+const SESSION_KEY = 'portfolio-chat-session-id';
 
-/** Keyword-to-reply rules for generating relevant auto-replies */
-const REPLY_RULES: { keywords: string[]; reply: string }[] = [
-  {
-    keywords: ['hello', 'hi', 'hey', 'greetings'],
-    reply: 'Hello! Thanks for visiting my portfolio. How can I help you?',
-  },
-  {
-    keywords: ['job', 'work', 'experience', 'hire', 'career'],
-    reply: 'I have seven years of industry experience — check out the About and Education pages for details!',
-  },
-  {
-    keywords: ['project', 'portfolio', 'website', 'app'],
-    reply: 'This portfolio is built with React, TypeScript and Vite. The Gallery page has project highlights.',
-  },
-  {
-    keywords: ['skill', 'tech', 'technology', 'stack', 'language'],
-    reply: 'My main skills include Java, TypeScript and React — see the Knowledge page for the full list.',
-  },
-  {
-    keywords: ['education', 'study', 'university', 'degree', 'master'],
-    reply: 'I am studying for an MSc in Software Engineering at the University of Limerick.',
-  },
-  {
-    keywords: ['contact', 'email', 'reach', 'message'],
-    reply: 'You can leave a message here and I will get back to you. Thanks for reaching out!',
-  },
-  {
-    keywords: ['blog', 'article', 'post', 'write'],
-    reply: 'I write about software development on the Blog page — take a look!',
-  },
-];
+/**
+ * Backend API base. Empty string = same origin, so the Vite dev-server
+ * proxy (vite.config.ts) forwards /api to localhost:8080.
+ */
+const API_BASE = '';
 
-/** Default reply when no keyword matches */
-const DEFAULT_REPLY =
-  'Thanks for your message! I will get back to you soon. You can also explore the About, Knowledge and Blog pages.';
-
-/** Pick a relevant reply based on keywords in the user's message */
-function pickReply(userText: string): string {
-  const lower = userText.toLowerCase();
-  for (const rule of REPLY_RULES) {
-    if (rule.keywords.some((kw) => lower.includes(kw))) {
-      return rule.reply;
-    }
+/** Read the stored session ID, or create one for a new visitor */
+function getSessionId(): string {
+  let id = localStorage.getItem(SESSION_KEY);
+  if (!id) {
+    // Timestamp + random suffix is unique enough for a portfolio chat
+    id = `session-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+    localStorage.setItem(SESSION_KEY, id);
+    console.info('[chat] Created new session:', id);
+  } else {
+    console.info('[chat] Reusing existing session:', id);
   }
-  return DEFAULT_REPLY;
-}
-
-/** Load persisted messages from localStorage */
-function loadMessages(): Message[] {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? (JSON.parse(raw) as Message[]) : [];
-  } catch {
-    return [];
-  }
-}
-
-/** Persist messages to localStorage */
-function saveMessages(messages: Message[]): void {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
-  } catch {
-    // Storage may be unavailable (private mode) — silently ignore
-  }
+  return id;
 }
 
 /**
- * Custom hook for a simple chat interface.
- * Persists messages to localStorage so they survive a page refresh,
- * and generates keyword-based auto-replies.
+ * Custom hook for the chat interface.
+ * Talks to the backend API so messages and auto-replies are persisted
+ * server-side; only the session ID is kept in localStorage so the
+ * visitor's history survives a page refresh.
  */
 export function useChat(): {
   messages: Message[];
-  sendMessage: (text: string) => void;
-  clearMessages: () => void;
+  sendMessage: (text: string) => Promise<void>;
+  clearMessages: () => Promise<void>;
+  loading: boolean;
+  error: string | null;
 } {
-  const [messages, setMessages] = useState<Message[]>(loadMessages);
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  // useRef: the session ID never changes for the lifetime of the page
+  const sessionIdRef = useRef<string>(getSessionId());
 
-  // Persist messages to localStorage whenever they change
+  // Load this session's chat history from the backend on first render
   useEffect(() => {
-    saveMessages(messages);
-  }, [messages]);
-
-  // Send a user message and append a relevant bot auto-reply
-  const sendMessage = useCallback((text: string) => {
-    setMessages((prev) => {
-      const baseId = prev.length > 0 ? prev[prev.length - 1].id : 0;
-      const userMsg: Message = { id: baseId + 1, text, sender: 'user' };
-      const botMsg: Message = {
-        id: baseId + 2,
-        text: pickReply(text),
-        sender: 'bot',
-      };
-      return [...prev, userMsg, botMsg];
-    });
+    let cancelled = false;
+    const sessionId = sessionIdRef.current;
+    (async () => {
+      try {
+        // encodeURIComponent: sessionId contains random chars; encode it
+        // so special characters never break the query string
+        const res = await fetch(
+          `${API_BASE}/api/v1/messages?sessionId=${encodeURIComponent(sessionId)}`,
+        );
+        // fetch does NOT throw on 4xx/5xx, so we must check res.ok manually
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data: Message[] = await res.json();
+        if (!cancelled) setMessages(data);
+      } catch {
+        // Show a friendly message instead of the raw error — visitors
+        // don't need to know it was an HTTP 500 or a network failure
+        if (!cancelled) setError('Could not load chat history.');
+      }
+    })();
+    // Avoid setting state after the component unmounts
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
-  // Clear all messages and remove them from storage
-  const clearMessages = useCallback(() => {
-    setMessages([]);
+  // Send a user message; the backend saves it and returns the auto-reply
+  const sendMessage = useCallback(async (text: string) => {
+    // Loading flag disables the form (see Messaging.tsx) so the visitor
+    // cannot fire a second request while the first one is still pending
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch(`${API_BASE}/api/v1/messages`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sessionId: sessionIdRef.current, text }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      // Backend returns { userMessage, botMessage } — append both
+      const data: { userMessage: Message; botMessage: Message } = await res.json();
+      setMessages((prev) => [...prev, data.userMessage, data.botMessage]);
+    } catch {
+      setError('Message could not be sent. Please try again.');
+    } finally {
+      // Always reset loading, even on failure, so the form is usable again
+      setLoading(false);
+    }
   }, []);
 
-  return { messages, sendMessage, clearMessages };
+  // Delete this session's history on the backend, then clear the UI
+  const clearMessages = useCallback(async () => {
+    try {
+      await fetch(
+        `${API_BASE}/api/v1/messages?sessionId=${encodeURIComponent(sessionIdRef.current)}`,
+        { method: 'DELETE' },
+      );
+      setMessages([]);
+      setError(null);
+    } catch {
+      setError('Could not clear messages.');
+    }
+  }, []);
+
+  return { messages, sendMessage, clearMessages, loading, error };
 }

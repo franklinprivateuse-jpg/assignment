@@ -1,3 +1,10 @@
+/* Privacy notice — small, dimmed text above the chat box */
+.privacyNote {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+}
+
 .chatContainer {
   display: flex;
   flex-direction: column;
@@ -55,6 +62,15 @@
   border-top: 1px solid var(--color-border);
   padding: var(--space-sm);
   gap: var(--space-sm);
+}
+
+/* Error banner shown when an API call fails */
+.errorMessage {
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-error);
+  font-size: 0.8125rem;
+  text-align: center;
+  border-top: 1px solid var(--color-border);
 }
 
 .inputField {

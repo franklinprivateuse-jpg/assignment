@@ -11,6 +11,8 @@ import BlogDetail from '../pages/blog/BlogDetail';
 import Messaging from '../pages/messaging/Messaging';
 import Readme from '../pages/readme/Readme';
 import NotFound from '../pages/notfound/NotFound';
+// Admin page — not in the public navbar; owner navigates to /admin directly
+import Admin from '../pages/admin/Admin';
 
 /** Central route configuration — maps URL paths to page components */
 const AppRouter: React.FC = () => {
@@ -26,6 +28,8 @@ const AppRouter: React.FC = () => {
       <Route path="/blog/:id" element={<BlogDetail />} />
       <Route path="/messaging" element={<Messaging />} />
       <Route path="/readme" element={<Readme />} />
+      {/* Admin dashboard — hidden from navbar, accessed via direct URL */}
+      <Route path="/admin" element={<Admin />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
