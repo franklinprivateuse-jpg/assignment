@@ -112,62 +112,8 @@ This project follows the coding standards defined in `requirements/coding-standa
 
 ## Changelog
 
-### v0.1.0 — Peer Review Fixes (November 2026)
-
-Issues below were identified during the Phase 1 peer review and have been fixed.
-
-#### Code Fixes (C1–C16)
-
-| ID | File | Issue | Fix |
-|----|------|-------|-----|
-| C1 | `AppRouter.tsx` | No catch-all route; unknown URLs showed a blank page | Added `<Route path="*">` pointing to the NotFound page |
-| C2 | `Blog.tsx` | Only the article with id=1 had a link | Added `<Link>` for every article by id |
-| C3 | `Blog.tsx` / `BlogDetail.tsx` / `types.ts` | Title and date stored twice; BlogDetail defined its own type; `content` field unused | Extracted a single typed `posts.ts` data file shared by both pages |
-| C4 | `useChat.ts` | Messages lost on refresh; replies were random | Messages now persist to localStorage; replies use keyword matching (partial — see Pending Items) |
-| C5 | `Messaging.tsx` | No auto-scroll to latest message; input had no label | Added `useRef` + `scrollIntoView`; added `aria-label` |
-| C6 | `Education.tsx` | JD.com work experience listed under Education; mixed Chinese/English; `date` used as key | Moved to Experience section; unified to English; switched to `id` as key |
-| C7 | `Gallery.tsx` | Only placeholder text, no real images | Added image with alt text and lazy loading (placeholder photo — see Pending Items) |
-| C8 | `Home.tsx` | Inline styles violated CSS Modules convention | Moved all inline styles into `Home.module.css` |
-| C9 | 12 `.module.css` files | No comments in any CSS Module | Added section comments to all CSS Module files |
-| C10 | `Videos.tsx` | Inconsistent iframe indentation | Unified indentation manually (Prettier not yet installed — see Pending Items) |
-| C11 | `src/assets` | Unused assets; background image misspelled (`background_pricture.png`) | Removed unused files; renamed to `background_picture.png` (compression to WebP not yet done — see Pending Items) |
-| C12 | `Navbar.module.css` | Mobile nav wrapped into three rows and occupied the screen | Added hamburger menu button with toggle state for screens ≤ 768px |
-| C13 | `BlogDetail.tsx` | Only component without a header comment | Added a concise header comment |
-| C14 | `index.css` | Dark mode only followed system preference; visitors could not toggle | Added light/dark toggle button via `useTheme` hook; choice persisted to localStorage |
-| C15 | `About.module.css` | Highlighted words used link colour, appearing clickable but not clickable | Changed to normal colour with bold weight |
-| C16 | `Blog.tsx` | Dates displayed in raw, unreadable format | Formatted with `toLocaleDateString` |
-
-#### Documentation & Design Fixes (D1–D5)
-
-| ID | Object | Issue | Fix |
-|----|--------|-------|-----|
-| D1 | Report: Phase Plan | Completed features were planned in Phase 2 | Moved Dark Mode, Error Handling, and Responsive Design into Phase 1; added a "Plan Changes" subsection explaining the reasons |
-| D2 | Report: Requirements | No personas, scenarios, user stories, or non-functional requirements | Added 3 personas (recruiter, client, peer reviewer) with scenarios; added FR-01–FR-12 user stories and NFR-01–NFR-06 non-functional requirements |
-| D3 | Control Flow Diagram | Diagram showed a 404 page that did not exist in code | Implemented the NotFound page to match the diagram |
-| D4 | Block & Component Diagrams | Component diagram was a text tree; missing CSS/theme/YouTube dependencies | Redrew both diagrams with nodes, dependency arrows, and all layers (Entry → App → View → Page → Logic → Style → External) |
-| D5 | README file & page | No online/repository links; README page was standalone text | Added repository and Live Demo links to README; README page now renders `README.md` dynamically via `react-markdown` + Vite `?raw` import |
-
-#### Deployment Compatibility Fix
-
-| Issue | Fix |
-|-------|-----|
-| BrowserRouter returns 404 on GitHub Pages when refreshing sub-routes (e.g. `/about`) | Switched from BrowserRouter to HashRouter in `App.tsx` for static hosting compatibility |
-| Asset paths broke on GitHub Pages (served under `/assignment/` sub-path) | Set `base: '/assignment/'` in `vite.config.ts`; deployed `dist/` to the `gh-pages` branch |
-
-**Live Demo deployed and verified:** [https://franklinprivateuse-jpg.github.io/assignment](https://franklinprivateuse-jpg.github.io/assignment)
-
-### v0.2.0 — Backend Integration (November 2026)
-
-Connected the frontend to the Spring Boot backend API ([kewei-portfolio-api](https://github.com/franklinprivateuse-jpg/kewei-portfolio-api)).
-
-| File | Change |
-|------|--------|
-| `src/hooks/useChat.ts` | Rewritten from local-only (localStorage + fake replies) to backend REST API calls (POST/GET/DELETE `/api/v1/messages`); sessionId persisted in localStorage; loading/error states |
-| `vite.config.ts` | Added dev-server proxy (`/api` → `localhost:8080`) so the frontend and backend share the same origin in development |
-| `src/pages/admin/Admin.tsx` + `Admin.module.css` | New Admin page: token login, view all visitor messages grouped by session (GET `/api/v1/messages/all` with `X-Admin-Token` header); route `/admin` hidden from navbar |
-| `src/pages/messaging/Messaging.tsx` | Loading/error states (disable input while sending, error banner); privacy note telling visitors the owner can see their messages |
-| `src/pages/readme/Readme.tsx` + `intro.md` | README page now renders a concise `intro.md` instead of the full repository README (which contains developer-only changelogs) |
-| `src/components/navbar/Navbar.tsx` | Renamed "README" nav label to "Project" |
+Version history follows the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format.
+See [`CHANGELOG.md`](CHANGELOG.md) for the full changelog.
 
 ### Pending Items (Not Yet Fixed)
 
