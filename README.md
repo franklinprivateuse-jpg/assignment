@@ -175,7 +175,7 @@ The first four items require external resources or inputs. The remaining items (
 
 | ID | Issue | Why It Is Pending |
 |----|-------|-------------------|
-| C4 | ~~Chat is not real instant messaging~~ **Resolved** | Chat now uses the Spring Boot backend API (`kewei-portfolio-api`) for message persistence and auto-reply. See "Backend Integration" section above. |
+| C4 | Chat is not real instant messaging | A true chat backend (Firebase, custom API, etc.) is required for message delivery to the author and multi-device sync. Current solution uses localStorage + keyword-matched replies as a transitional approach. |
 | C7 | Gallery lacks real project/event photos | Real photos must be provided by the site owner. The component structure, alt text, and layout are ready for images to be dropped in. |
 | D6 | References are not academic sources | Replacing web references with peer-reviewed literature requires searching academic databases (IEEE, ACM, etc.) for suitable sources. |
 | D7 | No analysis of the given portfolio brief | The original portfolio assets provided at the start of the module are needed to write the analysis. |
