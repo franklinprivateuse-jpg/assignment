@@ -11,7 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GSAP entrance animations on the Home page — hero section fade-in/slide-up and feature cards stagger animation via a reusable `useGsapFadeIn` hook
 - Route-level lazy loading — all 12 page components are now `React.lazy`-loaded with a `Suspense` fallback, splitting each page into its own bundle chunk
 - Keyword search on the Blog page — search box filters posts by title and excerpt (case-insensitive, client-side)
-- Backend-down fallback messages — shared `utils/backend.ts` helper (`isBackendDown` / `BACKEND_DOWN_MSG`); all fetch catch blocks now distinguish "backend unreachable" (TypeError) from HTTP errors and show "Backend service is not running yet. Please try again later." when the backend is offline
+- Backend-down fallback messages — shared `utils/backend.ts` helper (`isBackendDown` / `BACKEND_DOWN_MSG`); all fetch catch blocks now distinguish "backend unreachable" from HTTP errors and show "Backend service is not running yet. Please try again later." when the backend is offline
+
+### Fixed
+- Backend-down detection now also covers HTTP 502 (Vite dev proxy when backend refuses connection) and HTTP 404 (GitHub Pages has no /api route) — previously only TypeError was detected, so the fallback message never appeared in dev or on GitHub Pages
 
 ## [0.3.0] - 2026-11-12
 
