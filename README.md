@@ -20,11 +20,11 @@ kewei-portfolio/
 │   │   └── navbar/          # Navigation bar component
 │   │       ├── Navbar.tsx
 │   │       └── Navbar.module.css
-│   ├── data/
-│   │   └── posts.ts         # Shared blog post data (typed)
-│   ├── features/            # Feature modules (reserved)
 │   ├── hooks/
 │   │   ├── useChat.ts       # Custom hook for messaging functionality
+│   │   ├── usePosts.ts      # Custom hook for fetching blog posts from the API
+│   │   ├── useAdminPosts.ts # Custom hook for admin blog CRUD operations
+│   │   ├── useGsapFadeIn.ts # Reusable GSAP fade-in animation hook
 │   │   └── useTheme.ts      # Custom hook for light/dark theme toggle
 │   ├── i18n/                # Internationalization (reserved)
 │   ├── pages/
@@ -65,7 +65,7 @@ kewei-portfolio/
 | Professional Knowledge | `/knowledge` | Skills, technologies, and expertise |
 | Pictures Gallery | `/gallery` | Photo gallery showcase |
 | Video Gallery | `/videos` | Video gallery with YouTube embed |
-| Blog | `/blog` | Blog articles and posts |
+| Blog | `/blog` | Blog articles with keyword search |
 | Instant Messaging | `/messaging` | Contact form with auto-reply, backed by portfolio API |
 | Project | `/readme` | Concise project overview (intro.md) |
 | Admin | `/admin` | Owner-only dashboard: view all visitor messages (hidden from navbar) |
@@ -79,6 +79,8 @@ kewei-portfolio/
 - **Routing:** React Router DOM v7 (HashRouter for static hosting compatibility)
 - **Styling:** CSS Modules with centralized theme variables
 - **Markdown Rendering:** react-markdown (renders intro.md on the Project page)
+- **Animation:** GSAP (entrance animations on the Home page)
+- **Code Splitting:** React.lazy + Suspense (route-level lazy loading)
 - **Backend:** Spring Boot + H2 ([kewei-portfolio-api](https://github.com/franklinprivateuse-jpg/kewei-portfolio-api)) — chat messages and auto-reply
 
 ## Getting Started

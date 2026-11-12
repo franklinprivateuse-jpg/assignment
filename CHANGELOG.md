@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- GSAP entrance animations on the Home page — hero section fade-in/slide-up and feature cards stagger animation via a reusable `useGsapFadeIn` hook
+- Route-level lazy loading — all 12 page components are now `React.lazy`-loaded with a `Suspense` fallback, splitting each page into its own bundle chunk
+- Keyword search on the Blog page — search box filters posts by title and excerpt (case-insensitive, client-side)
+
 ## [0.3.0] - 2026-11-12
 
 ### Added

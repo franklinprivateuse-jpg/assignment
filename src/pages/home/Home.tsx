@@ -1,6 +1,9 @@
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { gsap } from 'gsap';
 import styles from './Home.module.css';
 import layout from '../page.module.css';
+import { useGsapFadeIn } from '../../hooks/useGsapFadeIn';
 
 /** A feature card linking to a portfolio section */
 interface Feature {
@@ -21,11 +24,26 @@ const FEATURES: Feature[] = [
   { title: 'README', description: 'Project overview and documentation.', link: '/readme' },
 ];
 
-/** Home page — hero section and feature overview cards */
+/** Home page — hero section and feature cards with GSAP entrance animations */
 const Home: React.FC = () => {
+  // Hero section — fade-in + slide-up on mount
+  const heroRef = useGsapFadeIn<HTMLElement>();
+
+  // Feature cards — staggered fade-in, each card animates in sequence
+  const featuresRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    if (!featuresRef.current) return;
+    const cards = featuresRef.current.children;
+    gsap.fromTo(
+      cards,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.4, stagger: 0.08, ease: 'power2.out', delay: 0.2 }
+    );
+  }, []);
+
   return (
     <div className={layout.container}>
-      <section className={styles.hero}>
+      <section ref={heroRef} className={styles.hero}>
         <h1 className={styles.heroTitle}>Welcome to My Portfolio</h1>
         <p className={styles.heroSubtitle}>
           Hi, I am Kewei — a software engineering student at the University of Limerick, passionate about building modern web applications.
@@ -35,7 +53,7 @@ const Home: React.FC = () => {
         </Link>
       </section>
 
-      <section className={styles.features}>
+      <section ref={featuresRef} className={styles.features}>
         {FEATURES.map((feature) => (
           <Link key={feature.link} to={feature.link} className={styles.featureLink}>
             <div className={styles.featureCard}>

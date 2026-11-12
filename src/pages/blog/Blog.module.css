@@ -56,3 +56,24 @@
   font-size: 0.9375rem;
   padding: var(--space-lg) 0;
 }
+
+/* Search input — filters the post list by keyword */
+.searchInput {
+  width: 100%;
+  max-width: 480px;
+  padding: 0.625rem 1rem;
+  margin-bottom: var(--space-lg);
+  font-size: 0.9375rem;
+  font-family: inherit;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.searchInput:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-bg);
+}
