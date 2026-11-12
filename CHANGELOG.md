@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- GitHub Actions CI workflow (`.github/workflows/ci.yml`) — runs ESLint and production build on every push/PR to `main`
+- GitHub Actions CD workflow (`.github/workflows/deploy.yml`) — builds and deploys to GitHub Pages automatically on every push to `main` (replaces manual `npm run deploy`)
 - Blog management panel on the Admin page (`/admin` → "Blog Posts" tab) — create, edit, and delete posts via the admin API (POST/PUT/DELETE `/api/v1/posts` with `X-Admin-Token` header); tab switcher between Messages and Blog Posts panels
 - `useAdminPosts` hook for admin blog CRUD operations with automatic list refresh after each mutation
 

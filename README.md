@@ -96,9 +96,18 @@ npm run build
 # Preview production build
 npm run preview
 
-# Deploy to GitHub Pages (builds and pushes dist/ to gh-pages branch)
+# Deploy to GitHub Pages (manual; CI/CD now handles this automatically)
 npm run deploy
 ```
+
+## CI/CD
+
+This repository uses GitHub Actions for continuous integration and deployment:
+
+- **CI** ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)): Runs ESLint and builds the project on every push and pull request to `main`.
+- **CD** ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)): Builds the production bundle and deploys it to GitHub Pages on every push to `main`, using the official `actions/deploy-pages` action.
+
+The backend API repository ([kewei-portfolio-api](https://github.com/franklinprivateuse-jpg/kewei-portfolio-api)) has its own CI workflow that runs `./mvnw verify` (compile + all unit tests) on every push.
 
 ## Coding Standards
 
@@ -128,7 +137,6 @@ The first four items require external resources or inputs. The remaining items (
 | D7 | No analysis of the given portfolio brief | The original portfolio assets provided at the start of the module are needed to write the analysis. |
 | P1 | Page data still stored inside components (Home, Videos, Gallery, Knowledge, Education) | Only Blog data was moved to `data/posts.ts`. The remaining pages still hold their data inline; moving each to a separate data file keeps content separate from layout per the coding standards. |
 | P2 | No automated tests | Requires installing Vitest + React Testing Library. Recommended starting point: `useChat` hook (pure logic, no layout dependency). |
-| P3 | No CI/CD pipeline | Requires setting up GitHub Actions to run lint, build, and tests on every push, then deploy to GitHub Pages automatically. |
 | P4 | No Error Boundary | A single component error can blank the entire site. Adding an Error Boundary with a friendly fallback message is recommended. |
 | P5 | No per-page titles or meta descriptions | Each page should set its own `<title>` and a short meta description for browser tabs and search engines. |
 | P6 | No Lighthouse audit | Running Chrome Lighthouse after each iteration would help track accessibility, performance, and best-practice improvements. |
