@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { BlogPost } from '../pages/blog/types';
+import { isBackendDown, BACKEND_DOWN_MSG } from '../utils/backend';
 
 /**
  * Custom hook for the blog post list.
@@ -26,9 +27,10 @@ export function usePosts(): {
         const data: BlogPost[] = await res.json();
         console.info(`[blog] Loaded ${data.length} post(s)`);
         if (!cancelled) setPosts(data);
-      } catch {
-        // Friendly message — visitors don't need HTTP details
-        if (!cancelled) setError('Could not load blog posts.');
+      } catch (err) {
+        // Distinguish "backend not running" (network error) from HTTP errors
+        if (!cancelled)
+          setError(isBackendDown(err) ? BACKEND_DOWN_MSG : 'Could not load blog posts.');
       } finally {
         if (!cancelled) setLoading(false);
       }

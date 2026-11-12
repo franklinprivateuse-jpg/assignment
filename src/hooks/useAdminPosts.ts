@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import type { BlogPost } from '../pages/blog/types';
+import { isBackendDown, BACKEND_DOWN_MSG } from '../utils/backend';
 
 /** Form data for creating or updating a blog post */
 export interface PostFormData {
@@ -43,9 +44,10 @@ export function useAdminPosts(token: string) {
         const data: BlogPost[] = await res.json();
         console.info(`[admin-blog] Loaded ${data.length} post(s)`);
         if (!cancelled) setPosts(data);
-      } catch {
+      } catch (err) {
         console.error('[admin-blog] Failed to load posts');
-        if (!cancelled) setError('Could not load posts.');
+        if (!cancelled)
+          setError(isBackendDown(err) ? BACKEND_DOWN_MSG : 'Could not load posts.');
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -69,9 +71,9 @@ export function useAdminPosts(token: string) {
         console.info('[admin-blog] Post created');
         setRefreshKey((k) => k + 1);
         return true;
-      } catch {
+      } catch (err) {
         console.error('[admin-blog] Failed to create post');
-        setError('Could not create post.');
+        setError(isBackendDown(err) ? BACKEND_DOWN_MSG : 'Could not create post.');
         return false;
       }
     },
@@ -92,9 +94,9 @@ export function useAdminPosts(token: string) {
         console.info(`[admin-blog] Post ${id} updated`);
         setRefreshKey((k) => k + 1);
         return true;
-      } catch {
+      } catch (err) {
         console.error(`[admin-blog] Failed to update post ${id}`);
-        setError('Could not update post.');
+        setError(isBackendDown(err) ? BACKEND_DOWN_MSG : 'Could not update post.');
         return false;
       }
     },
@@ -114,9 +116,9 @@ export function useAdminPosts(token: string) {
         console.info(`[admin-blog] Post ${id} deleted`);
         setRefreshKey((k) => k + 1);
         return true;
-      } catch {
+      } catch (err) {
         console.error(`[admin-blog] Failed to delete post ${id}`);
-        setError('Could not delete post.');
+        setError(isBackendDown(err) ? BACKEND_DOWN_MSG : 'Could not delete post.');
         return false;
       }
     },

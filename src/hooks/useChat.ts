@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
+import { isBackendDown, BACKEND_DOWN_MSG } from '../utils/backend';
 
 /** A single chat message from either the user or the bot.
  *  Field names match the backend MessageVO (id, text, sender). */
@@ -65,10 +66,9 @@ export function useChat(): {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data: Message[] = await res.json();
         if (!cancelled) setMessages(data);
-      } catch {
-        // Show a friendly message instead of the raw error — visitors
-        // don't need to know it was an HTTP 500 or a network failure
-        if (!cancelled) setError('Could not load chat history.');
+      } catch (err) {
+        // Distinguish "backend not running" (network error) from HTTP errors
+        if (!cancelled) setError(isBackendDown(err) ? BACKEND_DOWN_MSG : 'Could not load chat history.');
       }
     })();
     // Avoid setting state after the component unmounts
@@ -93,8 +93,8 @@ export function useChat(): {
       // Backend returns { userMessage, botMessage } — append both
       const data: { userMessage: Message; botMessage: Message } = await res.json();
       setMessages((prev) => [...prev, data.userMessage, data.botMessage]);
-    } catch {
-      setError('Message could not be sent. Please try again.');
+    } catch (err) {
+      setError(isBackendDown(err) ? BACKEND_DOWN_MSG : 'Message could not be sent. Please try again.');
     } finally {
       // Always reset loading, even on failure, so the form is usable again
       setLoading(false);
@@ -110,8 +110,8 @@ export function useChat(): {
       );
       setMessages([]);
       setError(null);
-    } catch {
-      setError('Could not clear messages.');
+    } catch (err) {
+      setError(isBackendDown(err) ? BACKEND_DOWN_MSG : 'Could not clear messages.');
     }
   }, []);
 

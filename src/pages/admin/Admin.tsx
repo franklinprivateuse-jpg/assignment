@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from './Admin.module.css';
 import layout from '../page.module.css';
 import AdminBlog from './AdminBlog';
+import { isBackendDown, BACKEND_DOWN_MSG } from '../../utils/backend';
 
 /** Admin message shape — matches backend AdminMessageVO
  *  (has sessionId and createdAt that visitors never see) */
@@ -105,9 +106,10 @@ const Admin: React.FC = () => {
         const sessionIds = new Set(data.map((m) => m.sessionId));
         console.info(`[admin] Loaded ${data.length} messages in ${sessionIds.size} session(s)`);
         if (!cancelled) setMessages(data);
-      } catch {
+      } catch (err) {
         console.error('[admin] Failed to load messages');
-        if (!cancelled) setError('Could not load messages. Is the backend running?');
+        if (!cancelled)
+          setError(isBackendDown(err) ? BACKEND_DOWN_MSG : 'Could not load messages. Is the backend running?');
       } finally {
         if (!cancelled) setLoading(false);
       }
