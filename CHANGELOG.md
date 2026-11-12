@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-11-12
+
 ### Added
 - GitHub Actions CI workflow (`.github/workflows/ci.yml`) — runs ESLint and production build on every push/PR to `main`
 - GitHub Actions CD workflow (`.github/workflows/deploy.yml`) — builds and deploys to GitHub Pages automatically on every push to `main` (replaces manual `npm run deploy`)
