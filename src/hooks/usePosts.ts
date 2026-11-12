@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { BlogPost } from '../pages/blog/types';
-import { isBackendDown, BACKEND_DOWN_MSG } from '../utils/backend';
+import { isBackendDown, BACKEND_DOWN_MSG, API_BASE } from '../utils/backend';
 
 /**
  * Custom hook for the blog post list.
@@ -21,7 +21,7 @@ export function usePosts(): {
     console.info('[blog] Fetching post list...');
     (async () => {
       try {
-        const res = await fetch('/api/v1/posts');
+        const res = await fetch(`${API_BASE}/api/v1/posts`);
         // fetch does NOT throw on 4xx/5xx, so check res.ok manually
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data: BlogPost[] = await res.json();

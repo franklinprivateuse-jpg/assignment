@@ -7,6 +7,14 @@
  */
 
 /**
+ * Backend API base URL.
+ * Points directly at the local Spring Boot server so that the deployed
+ * GitHub Pages site can reach it when the developer is online.
+ * Empty string would mean same-origin (Vite dev proxy only).
+ */
+export const API_BASE = 'http://localhost:8080';
+
+/**
  * Detect whether a fetch failure means the backend is unreachable.
  *
  * Three real-world cases:

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from './Admin.module.css';
 import layout from '../page.module.css';
 import AdminBlog from './AdminBlog';
-import { isBackendDown, BACKEND_DOWN_MSG } from '../../utils/backend';
+import { isBackendDown, BACKEND_DOWN_MSG, API_BASE } from '../../utils/backend';
 
 /** Admin message shape — matches backend AdminMessageVO
  *  (has sessionId and createdAt that visitors never see) */
@@ -88,7 +88,7 @@ const Admin: React.FC = () => {
     console.info('[admin] Fetching all messages...');
     (async () => {
       try {
-        const res = await fetch('/api/v1/messages/all', {
+        const res = await fetch(`${API_BASE}/api/v1/messages/all`, {
           headers: { 'X-Admin-Token': token },
         });
         if (cancelled) return;

@@ -16,6 +16,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Backend-down detection now also covers HTTP 502 (Vite dev proxy when backend refuses connection) and HTTP 404 (GitHub Pages has no /api route) — previously only TypeError was detected, so the fallback message never appeared in dev or on GitHub Pages
 
+### Changed
+- All API requests now use a centralized `API_BASE` constant (exported from `utils/backend.ts`, set to `http://localhost:8080`) instead of same-origin relative paths — the deployed GitHub Pages site can reach the developer's local backend directly; previously every hook hardcoded a relative `/api` path that only worked through the Vite dev proxy
+
 ## [0.3.0] - 2026-11-12
 
 ### Added

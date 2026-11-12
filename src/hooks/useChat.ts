@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { isBackendDown, BACKEND_DOWN_MSG } from '../utils/backend';
+import { isBackendDown, BACKEND_DOWN_MSG, API_BASE } from '../utils/backend';
 
 /** A single chat message from either the user or the bot.
  *  Field names match the backend MessageVO (id, text, sender). */
@@ -11,12 +11,6 @@ interface Message {
 
 /** localStorage key for persisting the visitor's session ID */
 const SESSION_KEY = 'portfolio-chat-session-id';
-
-/**
- * Backend API base. Empty string = same origin, so the Vite dev-server
- * proxy (vite.config.ts) forwards /api to localhost:8080.
- */
-const API_BASE = '';
 
 /** Read the stored session ID, or create one for a new visitor */
 function getSessionId(): string {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { BlogPost } from '../pages/blog/types';
-import { isBackendDown, BACKEND_DOWN_MSG } from '../utils/backend';
+import { isBackendDown, BACKEND_DOWN_MSG, API_BASE } from '../utils/backend';
 
 /**
  * Custom hook for a single blog post detail.
@@ -29,7 +29,7 @@ export function usePost(id: string | undefined): {
       setLoading(true);
       setError(null);
       try {
-        const res = await fetch(`/api/v1/posts/${id}`);
+        const res = await fetch(`${API_BASE}/api/v1/posts/${id}`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data: BlogPost = await res.json();
         console.info(`[blog] Loaded post ${id}: ${data.title}`);

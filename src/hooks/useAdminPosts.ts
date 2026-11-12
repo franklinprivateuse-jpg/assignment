@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import type { BlogPost } from '../pages/blog/types';
-import { isBackendDown, BACKEND_DOWN_MSG } from '../utils/backend';
+import { isBackendDown, BACKEND_DOWN_MSG, API_BASE } from '../utils/backend';
 
 /** Form data for creating or updating a blog post */
 export interface PostFormData {
@@ -31,7 +31,7 @@ export function useAdminPosts(token: string) {
     console.info('[admin-blog] Fetching post list...');
     (async () => {
       try {
-        const res = await fetch('/api/v1/posts', {
+        const res = await fetch(`${API_BASE}/api/v1/posts`, {
           headers: { 'X-Admin-Token': token },
         });
         if (cancelled) return;
@@ -62,7 +62,7 @@ export function useAdminPosts(token: string) {
     async (data: PostFormData): Promise<boolean> => {
       console.info('[admin-blog] Creating post...');
       try {
-        const res = await fetch('/api/v1/posts', {
+        const res = await fetch(`${API_BASE}/api/v1/posts`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'X-Admin-Token': token },
           body: JSON.stringify(data),
@@ -85,7 +85,7 @@ export function useAdminPosts(token: string) {
     async (id: number, data: PostFormData): Promise<boolean> => {
       console.info(`[admin-blog] Updating post ${id}...`);
       try {
-        const res = await fetch(`/api/v1/posts/${id}`, {
+        const res = await fetch(`${API_BASE}/api/v1/posts/${id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json', 'X-Admin-Token': token },
           body: JSON.stringify(data),
@@ -108,7 +108,7 @@ export function useAdminPosts(token: string) {
     async (id: number): Promise<boolean> => {
       console.info(`[admin-blog] Deleting post ${id}...`);
       try {
-        const res = await fetch(`/api/v1/posts/${id}`, {
+        const res = await fetch(`${API_BASE}/api/v1/posts/${id}`, {
           method: 'DELETE',
           headers: { 'X-Admin-Token': token },
         });
